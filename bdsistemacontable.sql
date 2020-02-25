@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS centrodecostos (
+	codigo INTEGER(11) NOT NULL,
+	nombre VARCHAR(50) NOT NULL,
+	PRIMARY KEY (codigo)
+);
+
+/* TABLA QUE ALMACENA LOS CODIGO PUC COMPLETOS*/
+CREATE TABLE IF NOT EXISTS puc (
+	codigo INTEGER(11) NOT NULL,
+	nombre VARCHAR(1000) NOT NULL,
+	PRIMARY KEY (codigo)
+);
+
+CREATE TABLE IF NOT EXISTS puccuatroingresos (
+	codigo INTEGER(11) NOT NULL,
+	nombre VARCHAR(1000) NOT NULL,
+	PRIMARY KEY (codigo)
+);
+
+CREATE TABLE IF NOT EXISTS puccincogastos (
+	codigo INTEGER(11) NOT NULL,
+	nombre VARCHAR(1000) NOT NULL,
+	PRIMARY KEY (codigo)
+);
+
+CREATE TABLE IF NOT EXISTS pucseiscostos (
+	codigo INTEGER(11) NOT NULL,
+	nombre VARCHAR(1000) NOT NULL,
+	PRIMARY KEY (codigo)
+);
