@@ -76,10 +76,24 @@ CREATE TABLE IF NOT EXISTS registroingresos (
 	anioreg INTEGER(10) NOT NULL,
 	mesreg INTEGER(10) NOT NULL,
 	diareg INTEGER(10) NOT NULL,
-	cconit VARCHAR(20) NOT NULL,
+	numidentificacion VARCHAR(20) NOT NULL,
 	nomtercero VARCHAR(500) NOT NULL,
 	cuentapuc VARCHAR(11) NOT NULL,
 	codigokardex VARCHAR(11) NOT NULL,
+	observacion VARCHAR(11),
+	valor INTEGER(11) NOT NULL,
+	PRIMARY KEY (numregistro)
+);
+
+CREATE TABLE IF NOT EXISTS registrogastos (
+	numregistro SERIAL NOT NULL,
+	anioreg INTEGER(10) NOT NULL,
+	mesreg INTEGER(10) NOT NULL,
+	diareg INTEGER(10) NOT NULL,
+	numidentificacion VARCHAR(20) NOT NULL,
+	nomtercero VARCHAR(500) NOT NULL,
+	centrodecostos VARCHAR(11) NOT NULL,
+	cuentapuc VARCHAR(11) NOT NULL,
 	observacion VARCHAR(11),
 	valor INTEGER(11) NOT NULL,
 	PRIMARY KEY (numregistro)
@@ -90,8 +104,9 @@ CREATE TABLE IF NOT EXISTS registrocostos (
 	anioreg INTEGER(10) NOT NULL,
 	mesreg INTEGER(10) NOT NULL,
 	diareg INTEGER(10) NOT NULL,
-	cconit VARCHAR(20) NOT NULL,
+	numidentificacion VARCHAR(20) NOT NULL,
 	nomtercero VARCHAR(500) NOT NULL,
+	centrodecostos VARCHAR(11) NOT NULL,
 	cuentapuc VARCHAR(11) NOT NULL,
 	codigokardex VARCHAR(11) NOT NULL,
 	observacion VARCHAR(11),
