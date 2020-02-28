@@ -16,12 +16,55 @@ public class vistaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form vistaPrincipal
      */
-    JPanel panels[] = new JPanel[5];
+    JPanel panels[] = new JPanel[4]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
     
     public vistaPrincipal() {
-        registroIngresoPanel registroIngreso = new registroIngresoPanel(this); 
-        registroIngreso.setBounds(0, 0, 1200, 600);
+        
+        opcionesPanel panelOpciones = new opcionesPanel(this); 
+        panelOpciones.setBounds(0, 0, 900, 650);
+        agregarPanel(0,panelOpciones); // Panel 0 - Panel Registro de ingresos
+        panelOpciones.setVisible(true);
+        ////////////////////
+        
+        registroIngresoPanel panelRegistroIngreso = new registroIngresoPanel(this); 
+        panelRegistroIngreso.setBounds(0, 0, 900, 650);
+        agregarPanel(1,panelRegistroIngreso); // Panel 1 - Panel Registro de ingresos
+        panelRegistroIngreso.setVisible(false);
+        ////////////////////
+        
+        registroCostoPanel panelRegistroCosto = new registroCostoPanel(this); 
+        panelRegistroCosto.setBounds(0, 0, 900, 650);
+        agregarPanel(2,panelRegistroCosto); // Panel 2 - Panel Registro de costo
+        panelRegistroIngreso.setVisible(false);
+        ////////////////////
+        
+        registroGastoPanel panelRegistroGasto = new registroGastoPanel(this); 
+        panelRegistroGasto.setBounds(0, 0, 900, 650);
+        agregarPanel(3,panelRegistroGasto); // Panel 3 - Panel Registro de gastos
+        panelRegistroIngreso.setVisible(false);
+        ////////////////////
+        
+        this.add(panelOpciones);
+        this.add(panelRegistroIngreso);
+        this.add(panelRegistroCosto);
+        this.add(panelRegistroGasto);
         initComponents();
+    }
+    
+    //En este metodo realizo el intercambio de paneles dejanso visible el panel de interes
+    // indicado por el entero n, y ocultando los demas paneles que no son de interes
+    public void swap(int n){
+        for(int i=0; i < panels.length; i++){
+            panels[i].setVisible(false);
+        }
+        panels[n].setVisible(true);
+    } 
+    
+    // Agrego los paneles que he creado a un arreglo de paneles, con esto es posible
+    // hacer de manera facil el intercambio entre paneles, con el metodo swap 
+    // se realiza el intercambio de paneles depues de haberlo agrado al arreglo
+    public void agregarPanel(int n, JPanel panel){
+        panels[n] = panel;
     }
 
     /**
@@ -33,53 +76,18 @@ public class vistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnRegistroIngresos = new javax.swing.JButton();
-        btnRegistroGastos = new javax.swing.JButton();
-        btnRegistroCostos = new javax.swing.JButton();
-        btnEntradaSalidaInventario = new javax.swing.JButton();
-        btnConsultas = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 650));
-
-        btnRegistroIngresos.setText("Registro de Ingresos");
-
-        btnRegistroGastos.setText("Registro de Gastos");
-
-        btnRegistroCostos.setText("Registro de Costos");
-
-        btnEntradaSalidaInventario.setText("Entrada/Salida Inventario");
-
-        btnConsultas.setText("Consultas");
+        setPreferredSize(new java.awt.Dimension(900, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(418, 418, 418)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnEntradaSalidaInventario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRegistroCostos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRegistroGastos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRegistroIngresos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(413, Short.MAX_VALUE))
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(145, 145, 145)
-                .addComponent(btnRegistroIngresos)
-                .addGap(27, 27, 27)
-                .addComponent(btnRegistroGastos)
-                .addGap(27, 27, 27)
-                .addComponent(btnRegistroCostos)
-                .addGap(26, 26, 26)
-                .addComponent(btnEntradaSalidaInventario)
-                .addGap(28, 28, 28)
-                .addComponent(btnConsultas)
-                .addContainerGap(182, Short.MAX_VALUE))
+            .addGap(0, 550, Short.MAX_VALUE)
         );
 
         pack();
@@ -121,10 +129,5 @@ public class vistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConsultas;
-    private javax.swing.JButton btnEntradaSalidaInventario;
-    private javax.swing.JButton btnRegistroCostos;
-    private javax.swing.JButton btnRegistroGastos;
-    private javax.swing.JButton btnRegistroIngresos;
     // End of variables declaration//GEN-END:variables
 }

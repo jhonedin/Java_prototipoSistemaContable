@@ -9,15 +9,15 @@ import java.awt.Color;
 
 /**
  *
- * @author Jhon
+ * @author Usuario
  */
-public class registroIngresoPanel extends javax.swing.JPanel {
+public class registroCostoPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form registroIngresoPanel
+     * Creates new form registroCostoPanel
      */
     vistaPrincipal frame; // instancia frame del frame principal 
-    public registroIngresoPanel(vistaPrincipal frame) {
+    public registroCostoPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
         initComponents();
         setBackground(Color.white);
@@ -33,14 +33,14 @@ public class registroIngresoPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         labelTitulo = new javax.swing.JLabel();
-        btnVolverRegistroIngreso = new javax.swing.JButton();
+        btnVolverRegistroCosto = new javax.swing.JButton();
 
-        labelTitulo.setText("REGISTRO DE INGRESOS");
+        labelTitulo.setText("REGISTRO DE COSTOS");
 
-        btnVolverRegistroIngreso.setText("Volver");
-        btnVolverRegistroIngreso.addActionListener(new java.awt.event.ActionListener() {
+        btnVolverRegistroCosto.setText("Volver");
+        btnVolverRegistroCosto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverRegistroIngresoActionPerformed(evt);
+                btnVolverRegistroCostoActionPerformed(evt);
             }
         });
 
@@ -51,29 +51,29 @@ public class registroIngresoPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVolverRegistroIngreso)
+                    .addComponent(btnVolverRegistroCosto)
                     .addComponent(labelTitulo))
-                .addContainerGap(735, Short.MAX_VALUE))
+                .addContainerGap(745, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(33, 33, 33)
                 .addComponent(labelTitulo)
-                .addGap(47, 47, 47)
-                .addComponent(btnVolverRegistroIngreso)
-                .addContainerGap(537, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(btnVolverRegistroCosto)
+                .addContainerGap(542, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverRegistroIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverRegistroIngresoActionPerformed
+    private void btnVolverRegistroCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverRegistroCostoActionPerformed
         // TODO add your handling code here:
         frame.swap(0); // hace el llamado al panel de opciones
-    }//GEN-LAST:event_btnVolverRegistroIngresoActionPerformed
+    }//GEN-LAST:event_btnVolverRegistroCostoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVolverRegistroIngreso;
+    private javax.swing.JButton btnVolverRegistroCosto;
     private javax.swing.JLabel labelTitulo;
     // End of variables declaration//GEN-END:variables
 }
