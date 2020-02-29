@@ -70,6 +70,11 @@ public class opcionesPanel extends javax.swing.JPanel {
         });
 
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         btnRegistroCostos.setText("Registro de Costos");
         btnRegistroCostos.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +143,11 @@ public class opcionesPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
          frame.swap(4); // hace el llamado al panel de Entrada y Salida de Inventarios
     }//GEN-LAST:event_btnEntradaSalidaInventarioActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0); // termnar la ejecución del programa 
+    }//GEN-LAST:event_btnSalirActionPerformed
     
     
 

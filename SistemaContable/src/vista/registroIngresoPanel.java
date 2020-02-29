@@ -34,6 +34,16 @@ public class registroIngresoPanel extends javax.swing.JPanel {
 
         labelTitulo = new javax.swing.JLabel();
         btnVolverRegistroIngreso = new javax.swing.JButton();
+        labelCuantaPuc = new javax.swing.JLabel();
+        txtCuentaPuc = new javax.swing.JTextField();
+        labelFechaRegistro = new javax.swing.JLabel();
+        labelDia = new javax.swing.JLabel();
+        txtDia = new javax.swing.JTextField();
+        labelMes = new javax.swing.JLabel();
+        ComboBoxMes = new javax.swing.JComboBox<>();
+        labelAnio = new javax.swing.JLabel();
+        txtAnio = new javax.swing.JTextField();
+        btnVerCodPuc = new javax.swing.JButton();
 
         labelTitulo.setText("REGISTRO DE INGRESOS");
 
@@ -44,25 +54,79 @@ public class registroIngresoPanel extends javax.swing.JPanel {
             }
         });
 
+        labelCuantaPuc.setText("Cuenta PUC:");
+
+        labelFechaRegistro.setText("Fecha de Registro:");
+
+        labelDia.setText("Dia:");
+
+        labelMes.setText("Mes:");
+
+        ComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelAnio.setText("Año:");
+
+        btnVerCodPuc.setText("Consultar PUC");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVolverRegistroIngreso)
+                .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVolverRegistroIngreso)
-                    .addComponent(labelTitulo))
-                .addContainerGap(735, Short.MAX_VALUE))
+                    .addComponent(labelTitulo)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelCuantaPuc)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtCuentaPuc, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelFechaRegistro)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelDia)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelMes)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelAnio)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnVerCodPuc))))
+                .addContainerGap(424, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(labelTitulo)
-                .addGap(47, 47, 47)
+                .addGap(65, 65, 65)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelFechaRegistro)
+                    .addComponent(labelDia)
+                    .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMes)
+                    .addComponent(ComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelAnio)
+                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelCuantaPuc)
+                    .addComponent(txtCuentaPuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVerCodPuc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 394, Short.MAX_VALUE)
                 .addComponent(btnVolverRegistroIngreso)
-                .addContainerGap(537, Short.MAX_VALUE))
+                .addGap(52, 52, 52))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -73,7 +137,17 @@ public class registroIngresoPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBoxMes;
+    private javax.swing.JButton btnVerCodPuc;
     private javax.swing.JButton btnVolverRegistroIngreso;
+    private javax.swing.JLabel labelAnio;
+    private javax.swing.JLabel labelCuantaPuc;
+    private javax.swing.JLabel labelDia;
+    private javax.swing.JLabel labelFechaRegistro;
+    private javax.swing.JLabel labelMes;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtCuentaPuc;
+    private javax.swing.JTextField txtDia;
     // End of variables declaration//GEN-END:variables
 }
