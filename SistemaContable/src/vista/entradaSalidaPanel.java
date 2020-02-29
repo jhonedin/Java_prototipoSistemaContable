@@ -9,15 +9,15 @@ import java.awt.Color;
 
 /**
  *
- * @author Usuario
+ * @author Jhon
  */
-public class consultasPanel extends javax.swing.JPanel {
+public class entradaSalidaPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form consultasPanel
+     * Creates new form entradaSalidaPanel
      */
     vistaPrincipal frame; // instancia frame del frame principal
-    public consultasPanel(vistaPrincipal frame) {
+    public entradaSalidaPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
         initComponents();
         setBackground(Color.white);
@@ -33,14 +33,14 @@ public class consultasPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         labelTitulo = new javax.swing.JLabel();
-        btnVolverConsultas = new javax.swing.JButton();
+        btnVolverESInventario = new javax.swing.JButton();
 
-        labelTitulo.setText("CONSULTAS");
+        labelTitulo.setText("ENTRADA Y SALIDA DE INVENTARIO");
 
-        btnVolverConsultas.setText("Volver");
-        btnVolverConsultas.addActionListener(new java.awt.event.ActionListener() {
+        btnVolverESInventario.setText("Volver");
+        btnVolverESInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverConsultasActionPerformed(evt);
+                btnVolverESInventarioActionPerformed(evt);
             }
         });
 
@@ -49,31 +49,31 @@ public class consultasPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVolverConsultas)
+                    .addComponent(btnVolverESInventario)
                     .addComponent(labelTitulo))
-                .addContainerGap(783, Short.MAX_VALUE))
+                .addContainerGap(688, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(33, 33, 33)
                 .addComponent(labelTitulo)
-                .addGap(38, 38, 38)
-                .addComponent(btnVolverConsultas)
-                .addContainerGap(526, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btnVolverESInventario)
+                .addContainerGap(553, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverConsultasActionPerformed
+    private void btnVolverESInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverESInventarioActionPerformed
         // TODO add your handling code here:
         frame.swap(0); // hace el llamado al panel de opciones
-    }//GEN-LAST:event_btnVolverConsultasActionPerformed
+    }//GEN-LAST:event_btnVolverESInventarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVolverConsultas;
+    private javax.swing.JButton btnVolverESInventario;
     private javax.swing.JLabel labelTitulo;
     // End of variables declaration//GEN-END:variables
 }

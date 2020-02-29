@@ -16,7 +16,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form vistaPrincipal
      */
-    JPanel panels[] = new JPanel[4]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
+    JPanel panels[] = new JPanel[6]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
     
     public vistaPrincipal() {
         
@@ -35,19 +35,33 @@ public class vistaPrincipal extends javax.swing.JFrame {
         registroCostoPanel panelRegistroCosto = new registroCostoPanel(this); 
         panelRegistroCosto.setBounds(0, 0, 900, 650);
         agregarPanel(2,panelRegistroCosto); // Panel 2 - Panel Registro de costo
-        panelRegistroIngreso.setVisible(false);
+        panelRegistroCosto.setVisible(false);
         ////////////////////
         
         registroGastoPanel panelRegistroGasto = new registroGastoPanel(this); 
         panelRegistroGasto.setBounds(0, 0, 900, 650);
         agregarPanel(3,panelRegistroGasto); // Panel 3 - Panel Registro de gastos
-        panelRegistroIngreso.setVisible(false);
+        panelRegistroGasto.setVisible(false);
+        ////////////////////
+        
+        entradaSalidaPanel panelESInventario = new entradaSalidaPanel(this); 
+        panelESInventario.setBounds(0, 0, 900, 650);
+        agregarPanel(4,panelESInventario); // Panel 4 - Panel Entrada/Salida Inventarios
+        panelESInventario.setVisible(false);
+        ////////////////////
+        
+        consultasPanel panelConsultas = new consultasPanel(this); 
+        panelConsultas.setBounds(0, 0, 900, 650);
+        agregarPanel(5,panelConsultas); // Panel 5 - Panel Consultas
+        panelConsultas.setVisible(false);
         ////////////////////
         
         this.add(panelOpciones);
         this.add(panelRegistroIngreso);
         this.add(panelRegistroCosto);
         this.add(panelRegistroGasto);
+        this.add(panelESInventario);
+        this.add(panelConsultas);
         initComponents();
     }
     

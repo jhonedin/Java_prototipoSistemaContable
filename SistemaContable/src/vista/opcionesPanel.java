@@ -56,8 +56,18 @@ public class opcionesPanel extends javax.swing.JPanel {
         });
 
         btnEntradaSalidaInventario.setText("Entrada/Salida Inventario");
+        btnEntradaSalidaInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntradaSalidaInventarioActionPerformed(evt);
+            }
+        });
 
         btnConsultas.setText("Consultas");
+        btnConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultasActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
 
@@ -118,6 +128,16 @@ public class opcionesPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(3); // hace el llamado al panel de Registro de gastos
     }//GEN-LAST:event_btnRegistroGastosActionPerformed
+
+    private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
+        // TODO add your handling code here:
+        frame.swap(5); // hace el llamado al panel de consultas
+    }//GEN-LAST:event_btnConsultasActionPerformed
+
+    private void btnEntradaSalidaInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaSalidaInventarioActionPerformed
+        // TODO add your handling code here:
+         frame.swap(4); // hace el llamado al panel de Entrada y Salida de Inventarios
+    }//GEN-LAST:event_btnEntradaSalidaInventarioActionPerformed
     
     
 
