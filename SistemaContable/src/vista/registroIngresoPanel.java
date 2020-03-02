@@ -21,6 +21,19 @@ public class registroIngresoPanel extends javax.swing.JPanel {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
         initComponents();
         setBackground(Color.white);
+        ComboBoxMes.removeAllItems();
+        ComboBoxMes.addItem("ENERO");
+        ComboBoxMes.addItem("FEBRERO");
+        ComboBoxMes.addItem("MARZO");
+        ComboBoxMes.addItem("ABRIL");
+        ComboBoxMes.addItem("MAYO");
+        ComboBoxMes.addItem("JUNIO");
+        ComboBoxMes.addItem("JULIO");
+        ComboBoxMes.addItem("AGOSTO");
+        ComboBoxMes.addItem("SEPTIEMBRE");
+        ComboBoxMes.addItem("OCTUBRE");
+        ComboBoxMes.addItem("NOVIEMBRE");
+        ComboBoxMes.addItem("DICIEMBRE");
     }
 
     /**
@@ -44,7 +57,20 @@ public class registroIngresoPanel extends javax.swing.JPanel {
         labelAnio = new javax.swing.JLabel();
         txtAnio = new javax.swing.JTextField();
         btnVerCodPuc = new javax.swing.JButton();
+        labelCodigoKardex = new javax.swing.JLabel();
+        txtCodigoKardex = new javax.swing.JTextField();
+        btnConsultarCodigoKardex = new javax.swing.JButton();
+        labelObservacion = new javax.swing.JLabel();
+        txtObservaciones = new javax.swing.JTextField();
+        labelValor = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableRegistroIngreso = new javax.swing.JTable();
+        btnRegistrar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
 
+        labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         labelTitulo.setText("REGISTRO DE INGRESOS");
 
         btnVolverRegistroIngreso.setText("Volver");
@@ -68,14 +94,52 @@ public class registroIngresoPanel extends javax.swing.JPanel {
 
         btnVerCodPuc.setText("Consultar PUC");
 
+        labelCodigoKardex.setText("Codigo Kardex:");
+
+        btnConsultarCodigoKardex.setText("Consultar Kardex");
+
+        labelObservacion.setText("Observaciones: ");
+
+        labelValor.setText("Valor: ");
+
+        tableRegistroIngreso.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Fecha", "N° Registro", "N° Identificacion", "Nombre Tercero", "Cuenta PUC", "Codigo Kardex", "Observacion", "Valor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableRegistroIngreso);
+
+        btnRegistrar.setText("Registro");
+
+        btnModificar.setText("Modificar");
+
+        btnConsultar.setText("Consultar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVolverRegistroIngreso)
-                .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,34 +147,65 @@ public class registroIngresoPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelCuantaPuc)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCuentaPuc, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelFechaRegistro)
                                 .addGap(18, 18, 18)
                                 .addComponent(labelDia)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelCuantaPuc)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCuentaPuc, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelMes)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(ComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnVerCodPuc))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(labelAnio)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnVerCodPuc))))
-                .addContainerGap(424, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelCodigoKardex)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtCodigoKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(btnConsultarCodigoKardex))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(labelValor)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(58, 58, 58))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnVolverRegistroIngreso)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(labelObservacion)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnRegistrar)
+                                    .addGap(28, 28, 28)
+                                    .addComponent(btnConsultar)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnModificar))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 745, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(38, 38, 38)
                 .addComponent(labelTitulo)
-                .addGap(65, 65, 65)
+                .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelFechaRegistro)
                     .addComponent(labelDia)
@@ -123,10 +218,26 @@ public class registroIngresoPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCuantaPuc)
                     .addComponent(txtCuentaPuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVerCodPuc))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 394, Short.MAX_VALUE)
+                    .addComponent(btnVerCodPuc)
+                    .addComponent(labelCodigoKardex)
+                    .addComponent(txtCodigoKardex, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarCodigoKardex))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelObservacion)
+                    .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelValor)
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistrar)
+                    .addComponent(btnModificar)
+                    .addComponent(btnConsultar))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
                 .addComponent(btnVolverRegistroIngreso)
-                .addGap(52, 52, 52))
+                .addGap(80, 80, 80))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,16 +249,28 @@ public class registroIngresoPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxMes;
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnConsultarCodigoKardex;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnVerCodPuc;
     private javax.swing.JButton btnVolverRegistroIngreso;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelAnio;
+    private javax.swing.JLabel labelCodigoKardex;
     private javax.swing.JLabel labelCuantaPuc;
     private javax.swing.JLabel labelDia;
     private javax.swing.JLabel labelFechaRegistro;
     private javax.swing.JLabel labelMes;
+    private javax.swing.JLabel labelObservacion;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JLabel labelValor;
+    private javax.swing.JTable tableRegistroIngreso;
     private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtCodigoKardex;
     private javax.swing.JTextField txtCuentaPuc;
     private javax.swing.JTextField txtDia;
+    private javax.swing.JTextField txtObservaciones;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

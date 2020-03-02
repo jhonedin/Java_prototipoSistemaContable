@@ -34,7 +34,9 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
         labelTitulo = new javax.swing.JLabel();
         btnVolverRegistroGasto = new javax.swing.JButton();
+        labelFechaRegistro = new javax.swing.JLabel();
 
+        labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         labelTitulo.setText("REGISTROS DE GASTOS");
 
         btnVolverRegistroGasto.setText("Volver");
@@ -44,25 +46,34 @@ public class registroGastoPanel extends javax.swing.JPanel {
             }
         });
 
+        labelFechaRegistro.setText("Fecha de Registro: ");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnVolverRegistroGasto)
-                    .addComponent(labelTitulo))
-                .addContainerGap(744, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(232, 232, 232)
+                        .addComponent(btnVolverRegistroGasto))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelFechaRegistro)
+                            .addComponent(labelTitulo))))
+                .addContainerGap(605, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(labelTitulo)
-                .addGap(41, 41, 41)
+                .addGap(55, 55, 55)
+                .addComponent(labelFechaRegistro)
+                .addGap(134, 134, 134)
                 .addComponent(btnVolverRegistroGasto)
-                .addContainerGap(529, Short.MAX_VALUE))
+                .addContainerGap(364, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -74,6 +85,7 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolverRegistroGasto;
+    private javax.swing.JLabel labelFechaRegistro;
     private javax.swing.JLabel labelTitulo;
     // End of variables declaration//GEN-END:variables
 }
