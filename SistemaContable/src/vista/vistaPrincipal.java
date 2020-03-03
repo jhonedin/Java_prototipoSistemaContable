@@ -22,6 +22,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         
         opcionesPanel panelOpciones = new opcionesPanel(this); 
         panelOpciones.setBounds(0, 0, 900, 650);
+        setResizable(false); // esto evita que el frame cambie de tamaño
         agregarPanel(0,panelOpciones); // Panel 0 - Panel Registro de ingresos
         panelOpciones.setVisible(true);
         ////////////////////
@@ -91,6 +92,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SISTEMA DE GESTION CONTABLE");
         setPreferredSize(new java.awt.Dimension(900, 650));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -101,7 +103,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 550, Short.MAX_VALUE)
+            .addGap(0, 650, Short.MAX_VALUE)
         );
 
         pack();
