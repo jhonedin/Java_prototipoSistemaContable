@@ -44,6 +44,24 @@ public class registroGastoPanel extends javax.swing.JPanel {
         labelCentroCosto = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         btnConsultarCentroCosto = new javax.swing.JButton();
+        labelCuentaPUC = new javax.swing.JLabel();
+        txtCuentaPUC = new javax.swing.JTextField();
+        btnConsultarPUC = new javax.swing.JButton();
+        labelCodigoKardex = new javax.swing.JLabel();
+        txtConsultarKardex = new javax.swing.JTextField();
+        btnConsultarKardex = new javax.swing.JButton();
+        labelIDTercero = new javax.swing.JLabel();
+        txtConsultarTercero = new javax.swing.JTextField();
+        btnConsultarTercero = new javax.swing.JButton();
+        labelObservaciones = new javax.swing.JLabel();
+        txtObservaciones = new javax.swing.JTextField();
+        labelValor = new javax.swing.JLabel();
+        txtValor = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableGastos = new javax.swing.JTable();
+        btnRegistro = new javax.swing.JButton();
+        btnConsultar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         labelTitulo.setText("REGISTROS DE GASTOS");
@@ -63,49 +81,124 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        labelAnio.setText("Anio:");
+        labelAnio.setText("Año:");
 
         labelCentroCosto.setText("Centro de Costos:");
 
         btnConsultarCentroCosto.setText("Consultar Centro Costo");
+
+        labelCuentaPUC.setText("Cuenta PUC:");
+
+        btnConsultarPUC.setText("Consultar PUC");
+
+        labelCodigoKardex.setText("Codigo Kardex:");
+
+        btnConsultarKardex.setText("Consultar Kardex");
+
+        labelIDTercero.setText("ID Tercero:");
+
+        btnConsultarTercero.setText("Consultar Tercero");
+
+        labelObservaciones.setText("Observaciones:");
+
+        labelValor.setText("Valor: ");
+
+        tableGastos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Fecha", "N° Registro", "N° Identificacion", "Nombre", "Centro Costos", "Cuenta PUC", "Codigo Kardex", "Observaciones", "Valor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableGastos);
+
+        btnRegistro.setText("Registro");
+
+        btnConsultar.setText("Consultar");
+
+        jButton1.setText("Modificar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(btnVolverRegistroGasto))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelTitulo)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labelCentroCosto)
-                                    .addComponent(labelFechaRegistro))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(16, 16, 16)
-                                        .addComponent(labelDia)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(labelMes)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24)
-                                        .addComponent(labelAnio)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnConsultarCentroCosto)))))))
-                .addContainerGap(458, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnVolverRegistroGasto)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelTitulo)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(labelCentroCosto)
+                                .addComponent(labelFechaRegistro)
+                                .addComponent(labelCodigoKardex)
+                                .addComponent(labelObservaciones)
+                                .addComponent(btnRegistro))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(16, 16, 16)
+                                    .addComponent(labelDia)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(labelMes)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(labelAnio)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(labelValor)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btnConsultarCentroCosto)
+                                                    .addGap(22, 22, 22)
+                                                    .addComponent(labelCuentaPUC)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtCuentaPUC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(txtConsultarKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(btnConsultarKardex)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(labelIDTercero)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtConsultarTercero)))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(btnConsultarTercero)
+                                                .addComponent(btnConsultarPUC)))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(30, 30, 30)
+                                    .addComponent(btnConsultar)
+                                    .addGap(31, 31, 31)
+                                    .addComponent(jButton1))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(157, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,10 +218,34 @@ public class registroGastoPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCentroCosto)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsultarCentroCosto))
-                .addGap(116, 116, 116)
+                    .addComponent(btnConsultarCentroCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCuentaPUC)
+                    .addComponent(txtCuentaPUC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarPUC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelCodigoKardex)
+                    .addComponent(txtConsultarKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelIDTercero)
+                    .addComponent(txtConsultarTercero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarTercero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelObservaciones)
+                    .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelValor)
+                    .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVolverRegistroGasto)
-                .addContainerGap(364, Short.MAX_VALUE))
+                .addContainerGap(178, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -139,17 +256,35 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnConsultarCentroCosto;
+    private javax.swing.JButton btnConsultarKardex;
+    private javax.swing.JButton btnConsultarPUC;
+    private javax.swing.JButton btnConsultarTercero;
+    private javax.swing.JButton btnRegistro;
     private javax.swing.JButton btnVolverRegistroGasto;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelAnio;
     private javax.swing.JLabel labelCentroCosto;
+    private javax.swing.JLabel labelCodigoKardex;
+    private javax.swing.JLabel labelCuentaPUC;
     private javax.swing.JLabel labelDia;
     private javax.swing.JLabel labelFechaRegistro;
+    private javax.swing.JLabel labelIDTercero;
     private javax.swing.JLabel labelMes;
+    private javax.swing.JLabel labelObservaciones;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JLabel labelValor;
+    private javax.swing.JTable tableGastos;
     private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtConsultarKardex;
+    private javax.swing.JTextField txtConsultarTercero;
+    private javax.swing.JTextField txtCuentaPUC;
     private javax.swing.JTextField txtDia;
+    private javax.swing.JTextField txtObservaciones;
+    private javax.swing.JTextField txtValor;
     // End of variables declaration//GEN-END:variables
 }

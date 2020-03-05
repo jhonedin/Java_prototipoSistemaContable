@@ -16,48 +16,86 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
-                      <Component id="btnVolverRegistroGasto" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="labelCentroCosto" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelFechaRegistro" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="btnVolverRegistroGasto" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="labelCentroCosto" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelFechaRegistro" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCodigoKardex" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelObservaciones" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnRegistro" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Component id="labelDia" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtDia" min="-2" pref="50" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="labelMes" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="jComboBox1" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Component id="labelAnio" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtAnio" min="-2" pref="50" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Component id="labelDia" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtDia" min="-2" pref="50" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="labelMes" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jComboBox1" min="-2" pref="120" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                      <Component id="labelAnio" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtAnio" min="-2" pref="50" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="txtObservaciones" min="-2" pref="261" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="labelValor" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="txtValor" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jTextField1" min="-2" pref="120" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btnConsultarCentroCosto" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                                  <Component id="labelCuentaPUC" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="txtCuentaPUC" min="-2" pref="120" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="txtConsultarKardex" min="-2" pref="120" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="btnConsultarKardex" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="labelIDTercero" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="txtConsultarTercero" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="btnConsultarTercero" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnConsultarPUC" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" min="-2" pref="120" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnConsultarCentroCosto" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btnConsultar" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
+                      <Component id="jScrollPane1" min="-2" pref="807" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="458" max="32767" attributes="0"/>
+              <EmptySpace pref="157" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,11 +118,38 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelCentroCosto" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextField1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                  <Component id="btnConsultarCentroCosto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnConsultarCentroCosto" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="labelCuentaPUC" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtCuentaPUC" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="btnConsultarPUC" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelCodigoKardex" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtConsultarKardex" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="btnConsultarKardex" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="labelIDTercero" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtConsultarTercero" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="btnConsultarTercero" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="labelObservaciones" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtObservaciones" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="labelValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtValor" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnRegistro" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="btnConsultar" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="144" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnVolverRegistroGasto" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="364" max="32767" attributes="0"/>
+              <EmptySpace pref="178" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -142,7 +207,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="labelAnio">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Anio:"/>
+        <Property name="text" type="java.lang.String" value="A&#xf1;o:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="labelCentroCosto">
@@ -155,6 +220,149 @@
     <Component class="javax.swing.JButton" name="btnConsultarCentroCosto">
       <Properties>
         <Property name="text" type="java.lang.String" value="Consultar Centro Costo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelCuentaPUC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cuenta PUC:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCuentaPUC">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnConsultarPUC">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Consultar PUC"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelCodigoKardex">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Codigo Kardex:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtConsultarKardex">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnConsultarKardex">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Consultar Kardex"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelIDTercero">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID Tercero:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtConsultarTercero">
+    </Component>
+    <Component class="javax.swing.JButton" name="btnConsultarTercero">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Consultar Tercero"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelObservaciones">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Observaciones:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtObservaciones">
+    </Component>
+    <Component class="javax.swing.JLabel" name="labelValor">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Valor: "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtValor">
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tableGastos">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="9" rowCount="4">
+                <Column editable="true" title="Fecha" type="java.lang.String"/>
+                <Column editable="true" title="N&#xb0; Registro" type="java.lang.String"/>
+                <Column editable="true" title="N&#xb0; Identificacion" type="java.lang.String"/>
+                <Column editable="true" title="Nombre" type="java.lang.String"/>
+                <Column editable="true" title="Centro Costos" type="java.lang.String"/>
+                <Column editable="true" title="Cuenta PUC" type="java.lang.String"/>
+                <Column editable="true" title="Codigo Kardex" type="java.lang.String"/>
+                <Column editable="true" title="Observaciones" type="java.lang.String"/>
+                <Column editable="true" title="Valor" type="java.lang.String"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="btnRegistro">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Registro"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnConsultar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Consultar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
     </Component>
   </SubComponents>
