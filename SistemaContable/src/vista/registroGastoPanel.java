@@ -36,6 +36,14 @@ public class registroGastoPanel extends javax.swing.JPanel {
         btnVolverRegistroGasto = new javax.swing.JButton();
         labelFechaRegistro = new javax.swing.JLabel();
         labelDia = new javax.swing.JLabel();
+        txtDia = new javax.swing.JTextField();
+        labelMes = new javax.swing.JLabel();
+        txtAnio = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        labelAnio = new javax.swing.JLabel();
+        labelCentroCosto = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        btnConsultarCentroCosto = new javax.swing.JButton();
 
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         labelTitulo.setText("REGISTROS DE GASTOS");
@@ -49,7 +57,17 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
         labelFechaRegistro.setText("Fecha de Registro: ");
 
-        labelDia.setText("Dia");
+        labelDia.setText("Dia:");
+
+        labelMes.setText("Mes:");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelAnio.setText("Anio:");
+
+        labelCentroCosto.setText("Centro de Costos:");
+
+        btnConsultarCentroCosto.setText("Consultar Centro Costo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,23 +81,52 @@ public class registroGastoPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelTitulo)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelFechaRegistro)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelDia))
-                            .addComponent(labelTitulo))))
-                .addContainerGap(605, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelCentroCosto)
+                                    .addComponent(labelFechaRegistro))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(labelDia)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(labelMes)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(labelAnio)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnConsultarCentroCosto)))))))
+                .addContainerGap(458, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(labelTitulo)
-                .addGap(26, 26, 26)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelFechaRegistro)
-                    .addComponent(labelDia))
-                .addGap(163, 163, 163)
+                    .addComponent(labelDia)
+                    .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelMes)
+                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelAnio))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelCentroCosto)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarCentroCosto))
+                .addGap(116, 116, 116)
                 .addComponent(btnVolverRegistroGasto)
                 .addContainerGap(364, Short.MAX_VALUE))
         );
@@ -92,9 +139,17 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultarCentroCosto;
     private javax.swing.JButton btnVolverRegistroGasto;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel labelAnio;
+    private javax.swing.JLabel labelCentroCosto;
     private javax.swing.JLabel labelDia;
     private javax.swing.JLabel labelFechaRegistro;
+    private javax.swing.JLabel labelMes;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JTextField txtAnio;
+    private javax.swing.JTextField txtDia;
     // End of variables declaration//GEN-END:variables
 }
