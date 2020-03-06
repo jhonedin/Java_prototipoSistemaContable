@@ -35,6 +35,7 @@ public class consultasPanel extends javax.swing.JPanel {
         labelTitulo = new javax.swing.JLabel();
         btnVolverConsultas = new javax.swing.JButton();
         btnConsultaCuentaPUC = new javax.swing.JButton();
+        btnConsultaCentroCosto = new javax.swing.JButton();
 
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         labelTitulo.setText("CONSULTAS");
@@ -53,6 +54,13 @@ public class consultasPanel extends javax.swing.JPanel {
             }
         });
 
+        btnConsultaCentroCosto.setText("Centro de Costos");
+        btnConsultaCentroCosto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaCentroCostoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -64,10 +72,11 @@ public class consultasPanel extends javax.swing.JPanel {
                         .addComponent(labelTitulo))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(340, 340, 340)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnConsultaCuentaPUC)
-                            .addComponent(btnVolverConsultas))))
-                .addContainerGap(465, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnVolverConsultas)
+                            .addComponent(btnConsultaCentroCosto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnConsultaCuentaPUC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(443, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,7 +85,9 @@ public class consultasPanel extends javax.swing.JPanel {
                 .addComponent(labelTitulo)
                 .addGap(77, 77, 77)
                 .addComponent(btnConsultaCuentaPUC)
-                .addGap(152, 152, 152)
+                .addGap(18, 18, 18)
+                .addComponent(btnConsultaCentroCosto)
+                .addGap(111, 111, 111)
                 .addComponent(btnVolverConsultas)
                 .addContainerGap(309, Short.MAX_VALUE))
         );
@@ -92,8 +103,14 @@ public class consultasPanel extends javax.swing.JPanel {
         frame.swap(6); // hace el llamado al panel de consultas de cuentas puc
     }//GEN-LAST:event_btnConsultaCuentaPUCActionPerformed
 
+    private void btnConsultaCentroCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaCentroCostoActionPerformed
+        // TODO add your handling code here:
+        frame.swap(7); // hace el llamado al panel de consultas de centro costos
+    }//GEN-LAST:event_btnConsultaCentroCostoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultaCentroCosto;
     private javax.swing.JButton btnConsultaCuentaPUC;
     private javax.swing.JButton btnVolverConsultas;
     private javax.swing.JLabel labelTitulo;

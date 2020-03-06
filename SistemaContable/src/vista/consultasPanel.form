@@ -24,13 +24,14 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="340" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnConsultaCuentaPUC" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnVolverConsultas" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnConsultaCentroCosto" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnConsultaCuentaPUC" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="465" max="32767" attributes="0"/>
+              <EmptySpace pref="443" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -41,7 +42,9 @@
               <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
               <Component id="btnConsultaCuentaPUC" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnConsultaCentroCosto" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
               <Component id="btnVolverConsultas" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="309" max="32767" attributes="0"/>
           </Group>
@@ -71,6 +74,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultaCuentaPUCActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnConsultaCentroCosto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Centro de Costos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConsultaCentroCostoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
