@@ -21,6 +21,19 @@ public class registroGastoPanel extends javax.swing.JPanel {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
         initComponents();
         setBackground(Color.white);
+        ComboBoxMes.removeAllItems();
+        ComboBoxMes.addItem("ENERO");
+        ComboBoxMes.addItem("FEBRERO");
+        ComboBoxMes.addItem("MARZO");
+        ComboBoxMes.addItem("ABRIL");
+        ComboBoxMes.addItem("MAYO");
+        ComboBoxMes.addItem("JUNIO");
+        ComboBoxMes.addItem("JULIO");
+        ComboBoxMes.addItem("AGOSTO");
+        ComboBoxMes.addItem("SEPTIEMBRE");
+        ComboBoxMes.addItem("OCTUBRE");
+        ComboBoxMes.addItem("NOVIEMBRE");
+        ComboBoxMes.addItem("DICIEMBRE");
     }
 
     /**
@@ -39,7 +52,7 @@ public class registroGastoPanel extends javax.swing.JPanel {
         txtDia = new javax.swing.JTextField();
         labelMes = new javax.swing.JLabel();
         txtAnio = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        ComboBoxMes = new javax.swing.JComboBox<>();
         labelAnio = new javax.swing.JLabel();
         labelCentroCosto = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -79,7 +92,7 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
         labelMes.setText("Mes:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         labelAnio.setText("Año:");
 
@@ -156,7 +169,7 @@ public class registroGastoPanel extends javax.swing.JPanel {
                                     .addGap(18, 18, 18)
                                     .addComponent(labelMes)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(24, 24, 24)
                                     .addComponent(labelAnio)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -212,7 +225,7 @@ public class registroGastoPanel extends javax.swing.JPanel {
                     .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelMes)
                     .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelAnio))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -256,6 +269,7 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBoxMes;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnConsultarCentroCosto;
     private javax.swing.JButton btnConsultarKardex;
@@ -264,7 +278,6 @@ public class registroGastoPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnRegistro;
     private javax.swing.JButton btnVolverRegistroGasto;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelAnio;
