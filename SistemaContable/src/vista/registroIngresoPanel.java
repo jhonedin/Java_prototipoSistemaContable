@@ -6,6 +6,11 @@
 package vista;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import logica.RegistroIngresoLogica;
+import modelo.Registroingresos;
 
 /**
  *
@@ -16,9 +21,19 @@ public class registroIngresoPanel extends javax.swing.JPanel {
     /**
      * Creates new form registroIngresoPanel
      */
-    vistaPrincipal frame; // instancia frame del frame principal 
+    vistaPrincipal frame; // instancia frame del frame principal
+    DefaultTableModel modelo;
+    private Registroingresos registroingresos;
+    private RegistroIngresoLogica registroingresoLogica;
+    private List<Registroingresos> listaRegistroIngresos;
     public registroIngresoPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
+        listaRegistroIngresos = new ArrayList<Registroingresos>();
+        registroingresos = new Registroingresos(); 
+        RegistroIngresoLogica registroingresoLogica = new RegistroIngresoLogica();
+        
+        
+        
         initComponents();
         setBackground(Color.white);
    
@@ -36,6 +51,39 @@ public class registroIngresoPanel extends javax.swing.JPanel {
         ComboBoxMes.addItem("NOVIEMBRE");
         ComboBoxMes.addItem("DICIEMBRE");
         txtCodigoKardex.setText("0000");
+        
+        listaRegistroIngresos = registroingresoLogica.listarRegistrosIngresos();
+        llenarTablaIngresos(listaRegistroIngresos);
+    }
+    
+    public void llenarTablaIngresos(List<Registroingresos> regingresos){
+        
+        List<Registroingresos> lista;
+        lista = regingresos;
+        setTabla(lista);
+    }
+    
+    public void setTabla(List<Registroingresos> regingresos){
+        modelo =  (DefaultTableModel) tableRegistroIngreso.getModel();
+        
+        int size = modelo.getRowCount();
+        for(int i=0; i < size; i++){
+            modelo.removeRow(0);
+        }
+        String aux[];
+        for(int j=0;j< regingresos.size();j++){
+            aux = new String[8];
+            
+            aux[0] = String.valueOf(regingresos.get(j).getAnioreg())+"-"+String.valueOf(regingresos.get(j).getMesreg())+"-"+String.valueOf(regingresos.get(j).getDiareg());
+            aux[1] = "I-"+String.valueOf(regingresos.get(j).getNumregistro());
+            aux[2] = regingresos.get(j).getNumidentificacion();
+            aux[3] = regingresos.get(j).getNomtercero();
+            aux[4] = regingresos.get(j).getCuentapuc();
+            aux[5] = regingresos.get(j).getCodigokardex();
+            aux[6] = regingresos.get(j).getObservacion();
+            aux[7] = "$ "+String.valueOf(regingresos.get(j).getValor());
+            modelo.addRow(aux);
+        }
     }
 
     /**

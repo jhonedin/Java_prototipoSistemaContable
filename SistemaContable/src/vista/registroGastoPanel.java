@@ -6,6 +6,12 @@
 package vista;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import logica.RegistroGastoLogica;
+import modelo.Registrogastos;
+import modelo.Registroingresos;
 
 /**
  *
@@ -17,8 +23,16 @@ public class registroGastoPanel extends javax.swing.JPanel {
      * Creates new form registroGastoPanel
      */
     vistaPrincipal frame; // instancia frame del frame principal 
+    DefaultTableModel modelo;
+    private Registrogastos registroGastos;
+    private RegistroGastoLogica registroGastoLogica;
+    private List<Registrogastos> listaRegistroGastos;
     public registroGastoPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
+        listaRegistroGastos = new ArrayList<Registrogastos>();
+        registroGastos = new Registrogastos(); 
+        RegistroGastoLogica registroGastoLogica = new RegistroGastoLogica();
+        
         initComponents();
         setBackground(Color.white);
         ComboBoxMes.removeAllItems();
@@ -34,6 +48,39 @@ public class registroGastoPanel extends javax.swing.JPanel {
         ComboBoxMes.addItem("OCTUBRE");
         ComboBoxMes.addItem("NOVIEMBRE");
         ComboBoxMes.addItem("DICIEMBRE");
+        
+        listaRegistroGastos = registroGastoLogica.listarRegistrosIngresos();
+        llenarTablaGastos(listaRegistroGastos);
+    }
+    
+    public void llenarTablaGastos(List<Registrogastos> reggastos){
+        
+        List<Registrogastos> lista;
+        lista = reggastos;
+        setTabla(lista);
+    }
+    
+    public void setTabla(List<Registrogastos> reggastos){
+        modelo =  (DefaultTableModel) tableGastos.getModel();
+        
+        int size = modelo.getRowCount();
+        for(int i=0; i < size; i++){
+            modelo.removeRow(0);
+        }
+        String aux[];
+        for(int j=0;j< reggastos.size();j++){
+            aux = new String[8];
+            
+            aux[0] = String.valueOf(reggastos.get(j).getAnioreg())+"-"+String.valueOf(reggastos.get(j).getMesreg())+"-"+String.valueOf(reggastos.get(j).getDiareg());
+            aux[1] = "G-"+String.valueOf(reggastos.get(j).getNumregistro());
+            aux[2] = reggastos.get(j).getNumidentificacion();
+            aux[3] = reggastos.get(j).getNomtercero();
+            aux[4] = reggastos.get(j).getCentrodecostos();
+            aux[5] = reggastos.get(j).getCuentapuc();
+            aux[6] = reggastos.get(j).getObservacion();
+            aux[7] = "$ "+String.valueOf(reggastos.get(j).getValor());
+            modelo.addRow(aux);
+        }
     }
 
     /**
@@ -60,9 +107,6 @@ public class registroGastoPanel extends javax.swing.JPanel {
         labelCuentaPUC = new javax.swing.JLabel();
         txtCuentaPUC = new javax.swing.JTextField();
         btnConsultarPUC = new javax.swing.JButton();
-        labelCodigoKardex = new javax.swing.JLabel();
-        txtConsultarKardex = new javax.swing.JTextField();
-        btnConsultarKardex = new javax.swing.JButton();
         labelIDTercero = new javax.swing.JLabel();
         txtConsultarTercero = new javax.swing.JTextField();
         btnConsultarTercero = new javax.swing.JButton();
@@ -104,10 +148,6 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
         btnConsultarPUC.setText("Consultar PUC");
 
-        labelCodigoKardex.setText("Codigo Kardex:");
-
-        btnConsultarKardex.setText("Consultar Kardex");
-
         labelIDTercero.setText("ID Tercero:");
 
         btnConsultarTercero.setText("Consultar Tercero");
@@ -118,17 +158,17 @@ public class registroGastoPanel extends javax.swing.JPanel {
 
         tableGastos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Fecha", "N° Registro", "N° Identificacion", "Nombre", "Centro Costos", "Cuenta PUC", "Codigo Kardex", "Observaciones", "Valor"
+                "Fecha", "N° Registro", "N° Identificacion", "Nombre", "Centro Costos", "Cuenta PUC", "Observaciones", "Valor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -157,9 +197,9 @@ public class registroGastoPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(labelCentroCosto)
                                 .addComponent(labelFechaRegistro)
-                                .addComponent(labelCodigoKardex)
                                 .addComponent(labelObservaciones)
-                                .addComponent(btnRegistro))
+                                .addComponent(btnRegistro)
+                                .addComponent(labelIDTercero))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(16, 16, 16)
@@ -188,23 +228,19 @@ public class registroGastoPanel extends javax.swing.JPanel {
                                                 .addGroup(layout.createSequentialGroup()
                                                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(btnConsultarCentroCosto)
-                                                    .addGap(22, 22, 22)
+                                                    .addComponent(btnConsultarCentroCosto))
+                                                .addComponent(txtConsultarTercero))
+                                            .addGap(22, 22, 22)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(btnConsultarTercero)
+                                                    .addGap(0, 0, Short.MAX_VALUE))
+                                                .addGroup(layout.createSequentialGroup()
                                                     .addComponent(labelCuentaPUC)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtCuentaPUC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(txtConsultarKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(btnConsultarKardex)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(labelIDTercero)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtConsultarTercero)))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(btnConsultarTercero)
-                                                .addComponent(btnConsultarPUC)))))
+                                                    .addComponent(txtCuentaPUC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(btnConsultarPUC))))))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(30, 30, 30)
                                     .addComponent(btnConsultar)
@@ -237,9 +273,6 @@ public class registroGastoPanel extends javax.swing.JPanel {
                     .addComponent(btnConsultarPUC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCodigoKardex)
-                    .addComponent(txtConsultarKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnConsultarKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelIDTercero)
                     .addComponent(txtConsultarTercero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnConsultarTercero, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -272,7 +305,6 @@ public class registroGastoPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> ComboBoxMes;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnConsultarCentroCosto;
-    private javax.swing.JButton btnConsultarKardex;
     private javax.swing.JButton btnConsultarPUC;
     private javax.swing.JButton btnConsultarTercero;
     private javax.swing.JButton btnRegistro;
@@ -282,7 +314,6 @@ public class registroGastoPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelAnio;
     private javax.swing.JLabel labelCentroCosto;
-    private javax.swing.JLabel labelCodigoKardex;
     private javax.swing.JLabel labelCuentaPUC;
     private javax.swing.JLabel labelDia;
     private javax.swing.JLabel labelFechaRegistro;
@@ -293,7 +324,6 @@ public class registroGastoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelValor;
     private javax.swing.JTable tableGastos;
     private javax.swing.JTextField txtAnio;
-    private javax.swing.JTextField txtConsultarKardex;
     private javax.swing.JTextField txtConsultarTercero;
     private javax.swing.JTextField txtCuentaPUC;
     private javax.swing.JTextField txtDia;

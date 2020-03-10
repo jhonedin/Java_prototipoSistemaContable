@@ -16,7 +16,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form vistaPrincipal
      */
-    JPanel panels[] = new JPanel[8]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
+    JPanel panels[] = new JPanel[9]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
     
     public vistaPrincipal() {
         
@@ -59,13 +59,18 @@ public class vistaPrincipal extends javax.swing.JFrame {
         
         consultaCuentasPUCPanel panelConsultaCuentasPUCPanel = new consultaCuentasPUCPanel(this); 
         panelConsultaCuentasPUCPanel.setBounds(0, 0, 900, 650);
-        agregarPanel(6,panelConsultaCuentasPUCPanel); // Panel 5 - Panel Consultas
+        agregarPanel(6,panelConsultaCuentasPUCPanel); // Panel 6 - Panel Consultas
         panelConsultaCuentasPUCPanel.setVisible(false);
         ////////////////////
         consultaCentroCostoPanel panelConsultaCentroCosto = new consultaCentroCostoPanel(this); 
         panelConsultaCentroCosto.setBounds(0, 0, 900, 650);
-        agregarPanel(7,panelConsultaCentroCosto); // Panel 5 - Panel Consultas
+        agregarPanel(7,panelConsultaCentroCosto); // Panel 7 - Panel Consultas
         panelConsultaCentroCosto.setVisible(false);
+        ////////////////////
+        consultaReporteEstadoResultados panelResporteEstadoResultados = new consultaReporteEstadoResultados(this); 
+        panelResporteEstadoResultados.setBounds(0, 0, 900, 650);
+        agregarPanel(8,panelResporteEstadoResultados); // Panel 8 - Panel Reporte Estados de Resultados
+        panelResporteEstadoResultados.setVisible(false);
         
         this.add(panelOpciones);
         this.add(panelRegistroIngreso);
@@ -74,6 +79,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
         this.add(panelESInventario);
         this.add(panelConsultas);
         this.add(panelConsultaCuentasPUCPanel);
+        this.add(panelConsultaCentroCosto);
+        this.add(panelResporteEstadoResultados);
         initComponents();
     }
     
