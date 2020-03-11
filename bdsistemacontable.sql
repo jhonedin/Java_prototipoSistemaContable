@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS registroingresos (
 	nomtercero VARCHAR(500),
 	cuentapuc VARCHAR(11),
 	codigokardex VARCHAR(11),
-	observacion VARCHAR(11),
+	observacion VARCHAR(1000),
 	valor INTEGER(11) NOT NULL,
 	PRIMARY KEY (numregistro)
 );
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS registrogastos (
 	nomtercero VARCHAR(500),
 	centrodecostos VARCHAR(20),
 	cuentapuc VARCHAR(11),
-	observacion VARCHAR(11),
+	observacion VARCHAR(1000),
 	valor INTEGER(11) NOT NULL,
 	PRIMARY KEY (numregistro)
 );
@@ -109,7 +109,14 @@ CREATE TABLE IF NOT EXISTS registrocostos (
 	nomtercero VARCHAR(500),
 	centrodecostos VARCHAR(20),
 	cuentapuc VARCHAR(11),
-	observacion VARCHAR(11),
+	codigokardex VARCHAR(11),
+	observacion VARCHAR(1000),
 	valor INTEGER(11) NOT NULL,
 	PRIMARY KEY (numregistro)
+);
+
+CREATE TABLE IF NOT EXISTS listadocostounitario (
+	codigokardex VARCHAR(11),
+	costounitario INTEGER(11) NOT NULL,
+	PRIMARY KEY (codigokardex)
 );

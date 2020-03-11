@@ -32,8 +32,8 @@
                       <Component id="btnConsultaCentroCosto" alignment="1" max="32767" attributes="0"/>
                       <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
                       <Component id="btnConsultaCodigoKardex" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btnVolverConsultas" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnVolverConsultas" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="387" max="32767" attributes="0"/>

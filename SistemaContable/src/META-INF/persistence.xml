@@ -3,18 +3,19 @@
   <persistence-unit name="SistemaContablePU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>modelo.Registroingresos</class>
-    <class>modelo.Listadoterceros</class>
-    <class>modelo.Pucseiscostos</class>
-    <class>modelo.Puccuatroingresos</class>
-    <class>modelo.Registrocostos</class>
-    <class>modelo.Maestroinventariounomi</class>
-    <class>modelo.Puccincogastos</class>
-    <class>modelo.Puc</class>
-    <class>modelo.Centrodecostos</class>
     <class>modelo.Maestroinventariocompleto</class>
-    <class>modelo.Maestroinventariotrespt</class>
+    <class>modelo.Puccincogastos</class>
+    <class>modelo.Centrodecostos</class>
+    <class>modelo.Puccuatroingresos</class>
+    <class>modelo.Pucseiscostos</class>
     <class>modelo.Maestroinventariodospp</class>
+    <class>modelo.Registrocostos</class>
+    <class>modelo.Listadoterceros</class>
+    <class>modelo.Maestroinventariotrespt</class>
+    <class>modelo.Listadocostounitario</class>
     <class>modelo.Registrogastos</class>
+    <class>modelo.Maestroinventariounomi</class>
+    <class>modelo.Puc</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/bdsistemacontable?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

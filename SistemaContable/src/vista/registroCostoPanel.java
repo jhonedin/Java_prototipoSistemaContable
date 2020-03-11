@@ -6,6 +6,11 @@
 package vista;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import logica.RegistroCostoLogica;
+import modelo.Registrocostos;
 
 /**
  *
@@ -17,8 +22,15 @@ public class registroCostoPanel extends javax.swing.JPanel {
      * Creates new form registroCostoPanel
      */
     vistaPrincipal frame; // instancia frame del frame principal 
+    DefaultTableModel modelo;
+    private Registrocostos registroCostos;
+    private RegistroCostoLogica registroCostoLogica;
+    private List<Registrocostos> listaRegistroCostos;
     public registroCostoPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
+        listaRegistroCostos = new ArrayList<Registrocostos>();
+        registroCostos = new Registrocostos(); 
+        RegistroCostoLogica registroCostoLogica = new RegistroCostoLogica();
         initComponents();
         setBackground(Color.white);
         ComboBoxMes.removeAllItems();
@@ -34,7 +46,44 @@ public class registroCostoPanel extends javax.swing.JPanel {
         ComboBoxMes.addItem("OCTUBRE");
         ComboBoxMes.addItem("NOVIEMBRE");
         ComboBoxMes.addItem("DICIEMBRE");
+        
+        listaRegistroCostos = registroCostoLogica.listarRegistrosCostos();
+        llenarTablaGastos(listaRegistroCostos);
+        
     }
+    
+    public void llenarTablaGastos(List<Registrocostos> regcastos){
+        
+        List<Registrocostos> lista;
+        lista = regcastos;
+        setTabla(lista);
+    }
+    
+    public void setTabla(List<Registrocostos> regcostos){
+        modelo =  (DefaultTableModel) tableCostos.getModel();
+        
+        int size = modelo.getRowCount();
+        for(int i=0; i < size; i++){
+            modelo.removeRow(0);
+        }
+        String aux[];
+        for(int j=0;j< regcostos.size();j++){
+            aux = new String[9];
+            
+            aux[0] = String.valueOf(regcostos.get(j).getAnioreg())+"-"+String.valueOf(regcostos.get(j).getMesreg())+"-"+String.valueOf(regcostos.get(j).getDiareg());
+            aux[1] = "C-"+String.valueOf(regcostos.get(j).getNumregistro());
+            aux[2] = regcostos.get(j).getNumidentificacion();
+            aux[3] = regcostos.get(j).getNomtercero();
+            aux[4] = regcostos.get(j).getCentrodecostos();
+            aux[5] = regcostos.get(j).getCuentapuc();
+            aux[6] = regcostos.get(j).getCodigokardex();
+            aux[7] = regcostos.get(j).getObservacion();
+            aux[8] = "$ "+String.valueOf(regcostos.get(j).getValor());
+            modelo.addRow(aux);
+        }
+    }    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,7 +120,7 @@ public class registroCostoPanel extends javax.swing.JPanel {
         btnConsultar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableCostos = new javax.swing.JTable();
         labelIDTercero = new javax.swing.JLabel();
         txtIDTercero = new javax.swing.JTextField();
         btnConsultarTercero = new javax.swing.JButton();
@@ -118,7 +167,7 @@ public class registroCostoPanel extends javax.swing.JPanel {
 
         jButton1.setText("Modificar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableCostos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -137,7 +186,7 @@ public class registroCostoPanel extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableCostos);
 
         labelIDTercero.setText("ID Tercero:");
 
@@ -279,7 +328,6 @@ public class registroCostoPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnVolverRegistroCosto;
     private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel labelCentroCosto;
     private javax.swing.JLabel labelCodigoKardex;
@@ -292,6 +340,7 @@ public class registroCostoPanel extends javax.swing.JPanel {
     private javax.swing.JLabel labelRegistroAnio;
     private javax.swing.JLabel labelTitulo;
     private javax.swing.JLabel labelValor;
+    private javax.swing.JTable tableCostos;
     private javax.swing.JTextField txtAnio;
     private javax.swing.JTextField txtCodigoKardex;
     private javax.swing.JTextField txtCuentaPUC;

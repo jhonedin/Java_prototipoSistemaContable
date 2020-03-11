@@ -49,6 +49,147 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
         ComboBoxMesFinal.addItem("NOVIEMBRE");
         ComboBoxMesFinal.addItem("DICIEMBRE");
     }
+    
+    public consultaReporteEstadoResultados() {
+        
+    }
+    
+    public int obtenerDiaFechaInicial(){
+        try{
+           return Integer.valueOf(txtDiaFechaInicial.getText()); 
+        }catch(NullPointerException e){
+            System.out.print("NullPointerException caught");
+            return 0;
+        }        
+    }
+    
+    public int obtenerMesFechaInicial(){
+        try{
+        int NumeroMes = 0;
+        switch(ComboBoxMesInicial.getSelectedItem().toString()) {
+            case "ENERO":
+                NumeroMes = 1;
+            break;
+            case "FEBRERO":
+                NumeroMes = 2;
+            break;
+            case "MARZO":
+                NumeroMes = 3;
+            break;
+            case "ABRIL":
+                NumeroMes = 4;
+            break;
+            case "MAYO":
+                NumeroMes = 5;
+            break;
+            case "JUNIO":
+                NumeroMes = 6;
+            break;
+            case "JULIO":
+                NumeroMes = 7;
+            break;
+            case "AGOSTO":
+                NumeroMes = 8;
+            break;
+            case "SEPTIEMBRE":
+                NumeroMes = 9;
+            break;
+            case "OCTUBRE":
+                NumeroMes = 10;
+            break;
+            case "NOVIEMBRE":
+                NumeroMes = 11;
+            break;
+            case "DICIEMBRE":
+                NumeroMes = 12;
+            break;
+            default:
+                NumeroMes = 0;
+        }
+        return NumeroMes;
+        }catch(NullPointerException e){
+            System.out.print("NullPointerException caught");
+            return 0;
+        } 
+    }
+    
+    public int obtenerAnioFechaInicial(){
+        try{
+            return Integer.valueOf(txtAnioFechaInicial.getText());
+        }catch(NullPointerException e){
+            System.out.print("NullPointerException caught");
+            return 0;
+        } 
+    }
+    
+    public int obtenerDiaFechaFinal(){
+        try{
+            return Integer.valueOf(txtDiaFechaFinal.getText());
+        }catch(NullPointerException e){
+            System.out.print("NullPointerException caught");
+            return 0;
+        } 
+    }
+
+    public int obtenerMesFechaFinal(){
+        try{
+        int NumeroMes = 0;
+        switch(ComboBoxMesFinal.getSelectedItem().toString()) {
+            case "ENERO":
+                NumeroMes = 1;
+            break;
+            case "FEBRERO":
+                NumeroMes = 2;
+            break;
+            case "MARZO":
+                NumeroMes = 3;
+            break;
+            case "ABRIL":
+                NumeroMes = 4;
+            break;
+            case "MAYO":
+                NumeroMes = 5;
+            break;
+            case "JUNIO":
+                NumeroMes = 6;
+            break;
+            case "JULIO":
+                NumeroMes = 7;
+            break;
+            case "AGOSTO":
+                NumeroMes = 8;
+            break;
+            case "SEPTIEMBRE":
+                NumeroMes = 9;
+            break;
+            case "OCTUBRE":
+                NumeroMes = 10;
+            break;
+            case "NOVIEMBRE":
+                NumeroMes = 11;
+            break;
+            case "DICIEMBRE":
+                NumeroMes = 12;
+            break;
+            default:
+                NumeroMes = 0;
+        }
+        return NumeroMes;
+        }catch(NullPointerException e){
+            System.out.print("NullPointerException caught");
+            return 0;
+        } 
+    }   
+    
+    public int obtenerAnioFechaFinal(){
+        try{
+            return Integer.valueOf(txtAnioFechaFinal.getText());
+        }catch(NullPointerException e){
+            System.out.print("NullPointerException caught");
+            return 0;
+        } 
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,17 +209,17 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDiaFechaInicial = new javax.swing.JTextField();
         ComboBoxMesInicial = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtAnioFechaInicial = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtDiaFechaFinal = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         ComboBoxMesFinal = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtAnioFechaFinal = new javax.swing.JTextField();
         btnGenerarEstadoResultado = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
 
@@ -117,6 +258,11 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
         jLabel13.setText("Año:");
 
         btnGenerarEstadoResultado.setText("Generar Reporte");
+        btnGenerarEstadoResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarEstadoResultadoActionPerformed(evt);
+            }
+        });
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -152,7 +298,7 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDiaFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -162,7 +308,7 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDiaFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -175,11 +321,11 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtAnioFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtAnioFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(313, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -199,20 +345,20 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAnioFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
                     .addComponent(ComboBoxMesInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDiaFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel6))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAnioFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
                     .addComponent(ComboBoxMesFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDiaFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(jLabel7))
                 .addGap(33, 33, 33)
@@ -227,6 +373,11 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(5); // hace el llamado al panel de consultas de donde desprende este panel
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnGenerarEstadoResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarEstadoResultadoActionPerformed
+        // TODO add your handling code here:
+        frame.swap(9); // hace el llamado al panel donde se muestra el estado de resultados calculado
+    }//GEN-LAST:event_btnGenerarEstadoResultadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -247,10 +398,10 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JTextField txtAnioFechaFinal;
+    private javax.swing.JTextField txtAnioFechaInicial;
+    private javax.swing.JTextField txtDiaFechaFinal;
+    private javax.swing.JTextField txtDiaFechaInicial;
     // End of variables declaration//GEN-END:variables
 }

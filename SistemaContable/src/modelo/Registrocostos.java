@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Registrocostos.findByNomtercero", query = "SELECT r FROM Registrocostos r WHERE r.nomtercero = :nomtercero")
     , @NamedQuery(name = "Registrocostos.findByCentrodecostos", query = "SELECT r FROM Registrocostos r WHERE r.centrodecostos = :centrodecostos")
     , @NamedQuery(name = "Registrocostos.findByCuentapuc", query = "SELECT r FROM Registrocostos r WHERE r.cuentapuc = :cuentapuc")
+    , @NamedQuery(name = "Registrocostos.findByCodigokardex", query = "SELECT r FROM Registrocostos r WHERE r.codigokardex = :codigokardex")
     , @NamedQuery(name = "Registrocostos.findByObservacion", query = "SELECT r FROM Registrocostos r WHERE r.observacion = :observacion")
     , @NamedQuery(name = "Registrocostos.findByValor", query = "SELECT r FROM Registrocostos r WHERE r.valor = :valor")})
 public class Registrocostos implements Serializable {
@@ -61,6 +62,8 @@ public class Registrocostos implements Serializable {
     private String centrodecostos;
     @Column(name = "cuentapuc")
     private String cuentapuc;
+    @Column(name = "codigokardex")
+    private String codigokardex;
     @Column(name = "observacion")
     private String observacion;
     @Basic(optional = false)
@@ -144,6 +147,14 @@ public class Registrocostos implements Serializable {
 
     public void setCuentapuc(String cuentapuc) {
         this.cuentapuc = cuentapuc;
+    }
+
+    public String getCodigokardex() {
+        return codigokardex;
+    }
+
+    public void setCodigokardex(String codigokardex) {
+        this.codigokardex = codigokardex;
     }
 
     public String getObservacion() {

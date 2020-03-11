@@ -22,11 +22,11 @@ import persistencia.exceptions.NonexistentEntityException;
  * @author Jhon
  */
 public class RegistrogastosJpaController implements Serializable {
-    
+
     public RegistrogastosJpaController() {
         this.emf = Persistence.createEntityManagerFactory("SistemaContablePU");
     }
-    
+        
     public RegistrogastosJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }

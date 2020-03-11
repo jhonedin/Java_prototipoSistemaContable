@@ -14,20 +14,21 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import modelo.Registroingresos;
+import modelo.Listadocostounitario;
 import persistencia.exceptions.NonexistentEntityException;
+import persistencia.exceptions.PreexistingEntityException;
 
 /**
  *
  * @author Jhon
  */
-public class RegistroingresosJpaController implements Serializable {
-    
-    public RegistroingresosJpaController() {
+public class ListadocostounitarioJpaController implements Serializable {
+
+    public ListadocostounitarioJpaController() {
         this.emf = Persistence.createEntityManagerFactory("SistemaContablePU");
     }
-        
-    public RegistroingresosJpaController(EntityManagerFactory emf) {
+    
+    public ListadocostounitarioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
     private EntityManagerFactory emf = null;
@@ -36,13 +37,18 @@ public class RegistroingresosJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
-    public void create(Registroingresos registroingresos) {
+    public void create(Listadocostounitario listadocostounitario) throws PreexistingEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(registroingresos);
+            em.persist(listadocostounitario);
             em.getTransaction().commit();
+        } catch (Exception ex) {
+            if (findListadocostounitario(listadocostounitario.getCodigokardex()) != null) {
+                throw new PreexistingEntityException("Listadocostounitario " + listadocostounitario + " already exists.", ex);
+            }
+            throw ex;
         } finally {
             if (em != null) {
                 em.close();
@@ -50,19 +56,19 @@ public class RegistroingresosJpaController implements Serializable {
         }
     }
 
-    public void edit(Registroingresos registroingresos) throws NonexistentEntityException, Exception {
+    public void edit(Listadocostounitario listadocostounitario) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            registroingresos = em.merge(registroingresos);
+            listadocostounitario = em.merge(listadocostounitario);
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = registroingresos.getNumregistro();
-                if (findRegistroingresos(id) == null) {
-                    throw new NonexistentEntityException("The registroingresos with id " + id + " no longer exists.");
+                String id = listadocostounitario.getCodigokardex();
+                if (findListadocostounitario(id) == null) {
+                    throw new NonexistentEntityException("The listadocostounitario with id " + id + " no longer exists.");
                 }
             }
             throw ex;
@@ -73,19 +79,19 @@ public class RegistroingresosJpaController implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
+    public void destroy(String id) throws NonexistentEntityException {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Registroingresos registroingresos;
+            Listadocostounitario listadocostounitario;
             try {
-                registroingresos = em.getReference(Registroingresos.class, id);
-                registroingresos.getNumregistro();
+                listadocostounitario = em.getReference(Listadocostounitario.class, id);
+                listadocostounitario.getCodigokardex();
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The registroingresos with id " + id + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The listadocostounitario with id " + id + " no longer exists.", enfe);
             }
-            em.remove(registroingresos);
+            em.remove(listadocostounitario);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -94,19 +100,19 @@ public class RegistroingresosJpaController implements Serializable {
         }
     }
 
-    public List<Registroingresos> findRegistroingresosEntities() {
-        return findRegistroingresosEntities(true, -1, -1);
+    public List<Listadocostounitario> findListadocostounitarioEntities() {
+        return findListadocostounitarioEntities(true, -1, -1);
     }
 
-    public List<Registroingresos> findRegistroingresosEntities(int maxResults, int firstResult) {
-        return findRegistroingresosEntities(false, maxResults, firstResult);
+    public List<Listadocostounitario> findListadocostounitarioEntities(int maxResults, int firstResult) {
+        return findListadocostounitarioEntities(false, maxResults, firstResult);
     }
 
-    private List<Registroingresos> findRegistroingresosEntities(boolean all, int maxResults, int firstResult) {
+    private List<Listadocostounitario> findListadocostounitarioEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            cq.select(cq.from(Registroingresos.class));
+            cq.select(cq.from(Listadocostounitario.class));
             Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -118,20 +124,20 @@ public class RegistroingresosJpaController implements Serializable {
         }
     }
 
-    public Registroingresos findRegistroingresos(Long id) {
+    public Listadocostounitario findListadocostounitario(String id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Registroingresos.class, id);
+            return em.find(Listadocostounitario.class, id);
         } finally {
             em.close();
         }
     }
 
-    public int getRegistroingresosCount() {
+    public int getListadocostounitarioCount() {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-            Root<Registroingresos> rt = cq.from(Registroingresos.class);
+            Root<Listadocostounitario> rt = cq.from(Listadocostounitario.class);
             cq.select(em.getCriteriaBuilder().count(rt));
             Query q = em.createQuery(cq);
             return ((Long) q.getSingleResult()).intValue();

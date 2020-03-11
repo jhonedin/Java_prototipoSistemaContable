@@ -16,7 +16,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form vistaPrincipal
      */
-    JPanel panels[] = new JPanel[9]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
+    JPanel panels[] = new JPanel[10]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
     
     public vistaPrincipal() {
         
@@ -72,6 +72,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
         agregarPanel(8,panelResporteEstadoResultados); // Panel 8 - Panel Reporte Estados de Resultados
         panelResporteEstadoResultados.setVisible(false);
         
+        reporteERPanel panelGeneraER = new reporteERPanel(this); 
+        panelGeneraER.setBounds(0, 0, 900, 650);
+        agregarPanel(9,panelGeneraER); // Panel 9 - Panel de calcular el estado de resultados
+        panelGeneraER.setVisible(false);
+        
         this.add(panelOpciones);
         this.add(panelRegistroIngreso);
         this.add(panelRegistroCosto);
@@ -81,6 +86,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         this.add(panelConsultaCuentasPUCPanel);
         this.add(panelConsultaCentroCosto);
         this.add(panelResporteEstadoResultados);
+        this.add(panelGeneraER);
         initComponents();
     }
     
