@@ -7,6 +7,7 @@ package logica;
 
 import java.util.List;
 import javax.swing.JOptionPane;
+import modelo.Listadocostounitario;
 import modelo.Registroingresos;
 
 /**
@@ -17,6 +18,7 @@ public class ReporteERLogica {
     
     private RegistroIngresoLogica registroIngresoLogica;
     private ListadoCostoUnitarioLogica listadoCULogica;
+    private Listadocostounitario listadoCU;
     public ReporteERLogica(){
         
     }
@@ -48,11 +50,14 @@ public class ReporteERLogica {
     public int calculoCVCostosProduccion(int dI,int mI,int aI,int dF,int mF,int aF){
         registroIngresoLogica = new RegistroIngresoLogica();
         listadoCULogica = new ListadoCostoUnitarioLogica();
+        listadoCU = new Listadocostounitario();
         List<Registroingresos> listaRegistrosIngresos = registroIngresoLogica.listarRegistrosIngresos();
         int costoProduccion = 0;
         int aux = 0;
         int posAux = 0;
         int contador = 0; // cuenta la cantidad de veces que se repite un codigo kardex
+        int valorParcial = 0;
+        int valorUnitario = 0;
         String auxKardex = "";
         for(int i=0;i<=listaRegistrosIngresos.size()-1;i++){
             if(listaRegistrosIngresos.get(i).getAnioreg()>=aI && listaRegistrosIngresos.get(i).getAnioreg()<=aF ){
@@ -66,11 +71,14 @@ public class ReporteERLogica {
                                 contador = contador + 1; // aqui cuento la cantidad de veces que se repite un codigo kardex
                             }
                         }
-                        
+                        listadoCU = listadoCULogica.llamarPorKardex(auxKardex); // traigo el objeto del listado de costo unitario segun su codigo kardex
+                        valorUnitario = listadoCU.getCostounitario();
+                        valorParcial = valorUnitario * contador;
                         
                     }
                 }
-            }  
+            }
+            costoProduccion = costoProduccion + valorParcial;
         }
         
         return costoProduccion;
