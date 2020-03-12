@@ -51,11 +51,22 @@ public class ReporteERLogica {
         List<Registroingresos> listaRegistrosIngresos = registroIngresoLogica.listarRegistrosIngresos();
         int costoProduccion = 0;
         int aux = 0;
+        int posAux = 0;
+        int contador = 0; // cuenta la cantidad de veces que se repite un codigo kardex
         String auxKardex = "";
         for(int i=0;i<=listaRegistrosIngresos.size()-1;i++){
             if(listaRegistrosIngresos.get(i).getAnioreg()>=aI && listaRegistrosIngresos.get(i).getAnioreg()<=aF ){
                 if(listaRegistrosIngresos.get(i).getMesreg()>=mI && listaRegistrosIngresos.get(i).getMesreg()<=mF){
                     if(listaRegistrosIngresos.get(i).getDiareg()>=dI && listaRegistrosIngresos.get(i).getDiareg()<=dF){
+                        auxKardex = listaRegistrosIngresos.get(i).getCodigokardex(); // tomo el codigo kardex de la lista 
+                        posAux = i;
+                        contador = 1;
+                        for(int j=i+1;j<=listaRegistrosIngresos.size()-1;j++){
+                            if(auxKardex.equals(listaRegistrosIngresos.get(j).getCodigokardex())){
+                                contador = contador + 1; // aqui cuento la cantidad de veces que se repite un codigo kardex
+                            }
+                        }
+                        
                         
                     }
                 }
