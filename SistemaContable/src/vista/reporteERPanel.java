@@ -23,20 +23,12 @@ public class reporteERPanel extends javax.swing.JPanel {
     public reporteERPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
         reporteERLogica = new ReporteERLogica();
-        consultaRES = new consultaReporteEstadoResultados();
+        //consultaRES = new consultaReporteEstadoResultados();
         initComponents();
         setBackground(Color.white);
-        int dI = consultaRES.obtenerDiaFechaInicial();
-        int mI = consultaRES.obtenerMesFechaInicial();
-        int aI = consultaRES.obtenerAnioFechaInicial();
-        int dF = consultaRES.obtenerDiaFechaFinal();
-        int mF = consultaRES.obtenerMesFechaInicial();
-        int aF = consultaRES.obtenerAnioFechaFinal();
-        txtFechaInicial.setText(String.valueOf(aI)+"-"+String.valueOf(mI)+"-"+String.valueOf(dI));
-        txtFechaFinal.setText(String.valueOf(aF)+"-"+String.valueOf(mF)+"-"+String.valueOf(dF));
-        int IngresosPorVenta = reporteERLogica.ingresosPorVenta(dI,mI,aI,dF,mF,aF);
-        txtIngresosPorVenta.setText("$ "+String.valueOf(IngresosPorVenta));
-        txtCostoProduccion.setText("$ "+String.valueOf(reporteERLogica.calculoCVCostosProduccion()));
+        //int IngresosPorVenta = reporteERLogica.ingresosPorVenta(dI,mI,aI,dF,mF,aF);
+        //txtIngresosPorVenta.setText("$ "+String.valueOf(IngresosPorVenta));
+        //txtCostoProduccion.setText("$ "+String.valueOf(reporteERLogica.calculoCVCostosProduccion()));
     }
 
     /**

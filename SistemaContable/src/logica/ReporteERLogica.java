@@ -6,6 +6,7 @@
 package logica;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import modelo.Registroingresos;
 
 /**
@@ -15,7 +16,7 @@ import modelo.Registroingresos;
 public class ReporteERLogica {
     
     private RegistroIngresoLogica registroIngresoLogica;
-
+    private ListadoCostoUnitarioLogica listadoCULogica;
     public ReporteERLogica(){
         
     }
@@ -24,16 +25,43 @@ public class ReporteERLogica {
         registroIngresoLogica = new RegistroIngresoLogica();
         List<Registroingresos> listaRegistrosIngresos = registroIngresoLogica.listarRegistrosIngresos();
         int aux = 0;
+        int ingreso = 0;
         for(int i=0;i<=listaRegistrosIngresos.size()-1;i++){
-            aux += listaRegistrosIngresos.get(i).getValor();
+            if(listaRegistrosIngresos.get(i).getAnioreg()>=aI && listaRegistrosIngresos.get(i).getAnioreg()<=aF ){
+                if(listaRegistrosIngresos.get(i).getMesreg()>=mI && listaRegistrosIngresos.get(i).getMesreg()<=mF){
+                    if(listaRegistrosIngresos.get(i).getDiareg()>=dI && listaRegistrosIngresos.get(i).getDiareg()<=dF){
+                        aux += listaRegistrosIngresos.get(i).getValor();
+                    }
+                }
+            }  
         }
-        //int ingreso = 446000;
-        int ingreso = aux;
+        if(aux!=0){
+           ingreso = aux;
+        }
+        else{
+           JOptionPane.showMessageDialog(null, "No se encontraron registros de ventas los rangos de fechas especificados"); 
+        }
+        
         return ingreso;
     }
     
-    public int calculoCVCostosProduccion(){
-        int costoProduccion = 88853;
+    public int calculoCVCostosProduccion(int dI,int mI,int aI,int dF,int mF,int aF){
+        registroIngresoLogica = new RegistroIngresoLogica();
+        listadoCULogica = new ListadoCostoUnitarioLogica();
+        List<Registroingresos> listaRegistrosIngresos = registroIngresoLogica.listarRegistrosIngresos();
+        int costoProduccion = 0;
+        int aux = 0;
+        String auxKardex = "";
+        for(int i=0;i<=listaRegistrosIngresos.size()-1;i++){
+            if(listaRegistrosIngresos.get(i).getAnioreg()>=aI && listaRegistrosIngresos.get(i).getAnioreg()<=aF ){
+                if(listaRegistrosIngresos.get(i).getMesreg()>=mI && listaRegistrosIngresos.get(i).getMesreg()<=mF){
+                    if(listaRegistrosIngresos.get(i).getDiareg()>=dI && listaRegistrosIngresos.get(i).getDiareg()<=dF){
+                        
+                    }
+                }
+            }  
+        }
+        
         return costoProduccion;
     }
 }

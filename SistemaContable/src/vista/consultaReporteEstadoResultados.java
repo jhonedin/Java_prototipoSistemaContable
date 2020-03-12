@@ -6,6 +6,8 @@
 package vista;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import logica.ReporteERLogica;
 
 /**
  *
@@ -50,147 +52,54 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
         ComboBoxMesFinal.addItem("DICIEMBRE");
     }
     
-    public consultaReporteEstadoResultados() {
-        
-    }
-    
-    public int obtenerDiaFechaInicial(){
-        try{
-           return Integer.valueOf(txtDiaFechaInicial.getText()); 
-        }catch(NullPointerException e){
-            System.out.print("NullPointerException caught");
-            return 0;
-        }        
-    }
-    
-    public int obtenerMesFechaInicial(){
-        try{
-        int NumeroMes = 0;
-        switch(ComboBoxMesInicial.getSelectedItem().toString()) {
-            case "ENERO":
-                NumeroMes = 1;
+    public int convertirMestoNumero(String mes){
+        int mesNum = 0;
+        switch(mes) {
+        case "ENERO":
+            mesNum = 1;
             break;
-            case "FEBRERO":
-                NumeroMes = 2;
+        case "FEBRERO":
+            mesNum = 2;
             break;
-            case "MARZO":
-                NumeroMes = 3;
+        case "MARZO":
+            mesNum = 3;
             break;
-            case "ABRIL":
-                NumeroMes = 4;
+        case "ABRIL":
+            mesNum = 4;
             break;
-            case "MAYO":
-                NumeroMes = 5;
+        case "MAYO":
+            mesNum = 5;
             break;
-            case "JUNIO":
-                NumeroMes = 6;
+        case "JUNIO":
+            mesNum = 6;
             break;
-            case "JULIO":
-                NumeroMes = 7;
+        case "JULIO":
+            mesNum = 7;
+            break;    
+        case "AGOSTO":
+            mesNum = 8;
+            break;  
+        case "SEPTIEMBRE":
+            mesNum = 9;
+            break;  
+        case "OCTUBRE":
+            mesNum = 10;
+            break;   
+        case "NOVIEMBRE":
+            mesNum = 11;
+            break;    
+        case "DICIEMBRE":
+            mesNum = 12;
             break;
-            case "AGOSTO":
-                NumeroMes = 8;
-            break;
-            case "SEPTIEMBRE":
-                NumeroMes = 9;
-            break;
-            case "OCTUBRE":
-                NumeroMes = 10;
-            break;
-            case "NOVIEMBRE":
-                NumeroMes = 11;
-            break;
-            case "DICIEMBRE":
-                NumeroMes = 12;
-            break;
-            default:
-                NumeroMes = 0;
+        default:
+            mesNum = 0;
         }
-        return NumeroMes;
-        }catch(NullPointerException e){
-            System.out.print("NullPointerException caught");
-            return 0;
-        } 
+        return mesNum;       
     }
     
-    public int obtenerAnioFechaInicial(){
-        try{
-            return Integer.valueOf(txtAnioFechaInicial.getText());
-        }catch(NullPointerException e){
-            System.out.print("NullPointerException caught");
-            return 0;
-        } 
-    }
-    
-    public int obtenerDiaFechaFinal(){
-        try{
-            return Integer.valueOf(txtDiaFechaFinal.getText());
-        }catch(NullPointerException e){
-            System.out.print("NullPointerException caught");
-            return 0;
-        } 
-    }
+  
 
-    public int obtenerMesFechaFinal(){
-        try{
-        int NumeroMes = 0;
-        switch(ComboBoxMesFinal.getSelectedItem().toString()) {
-            case "ENERO":
-                NumeroMes = 1;
-            break;
-            case "FEBRERO":
-                NumeroMes = 2;
-            break;
-            case "MARZO":
-                NumeroMes = 3;
-            break;
-            case "ABRIL":
-                NumeroMes = 4;
-            break;
-            case "MAYO":
-                NumeroMes = 5;
-            break;
-            case "JUNIO":
-                NumeroMes = 6;
-            break;
-            case "JULIO":
-                NumeroMes = 7;
-            break;
-            case "AGOSTO":
-                NumeroMes = 8;
-            break;
-            case "SEPTIEMBRE":
-                NumeroMes = 9;
-            break;
-            case "OCTUBRE":
-                NumeroMes = 10;
-            break;
-            case "NOVIEMBRE":
-                NumeroMes = 11;
-            break;
-            case "DICIEMBRE":
-                NumeroMes = 12;
-            break;
-            default:
-                NumeroMes = 0;
-        }
-        return NumeroMes;
-        }catch(NullPointerException e){
-            System.out.print("NullPointerException caught");
-            return 0;
-        } 
-    }   
     
-    public int obtenerAnioFechaFinal(){
-        try{
-            return Integer.valueOf(txtAnioFechaFinal.getText());
-        }catch(NullPointerException e){
-            System.out.print("NullPointerException caught");
-            return 0;
-        } 
-    }
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -376,7 +285,26 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
 
     private void btnGenerarEstadoResultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarEstadoResultadoActionPerformed
         // TODO add your handling code here:
+        try {
+        ReporteERLogica reporteERLogica = new ReporteERLogica(); 
+        int IngresoPorVenta = 0;
+        
+        int dI = Integer.valueOf(txtDiaFechaInicial.getText());
+        int mI = convertirMestoNumero(ComboBoxMesInicial.getSelectedItem().toString());
+        int aI = Integer.valueOf(txtAnioFechaInicial.getText());
+        int dF = Integer.valueOf(txtDiaFechaFinal.getText());
+        int mF = convertirMestoNumero(ComboBoxMesFinal.getSelectedItem().toString());
+        int aF = Integer.valueOf(txtAnioFechaFinal.getText());
+        int ingresoPV = reporteERLogica.ingresosPorVenta(dI,mI,aI,dF,mF,aF);
+        int cvCostoProduccion = reporteERLogica.calculoCVCostosProduccion(dI, mI, aI, dF, mF, aF); 
+        System.out.println("Ingreso por venta fue:"+ingresoPV);
+        System.out.println("El costo de produccion fue:"+cvCostoProduccion);
         frame.swap(9); // hace el llamado al panel donde se muestra el estado de resultados calculado
+        }catch (NumberFormatException nfe) {
+            JOptionPane.showMessageDialog(null, "Error, no pueden existir campos vacios");
+            //nfe.printStackTrace();
+        }
+        
     }//GEN-LAST:event_btnGenerarEstadoResultadoActionPerformed
 
 
