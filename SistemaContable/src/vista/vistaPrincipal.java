@@ -17,6 +17,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
      * Creates new form vistaPrincipal
      */
     JPanel panels[] = new JPanel[10]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
+    private int ingresosPorVenta = 0;
+    private int costoProduccion = 0;
     public vistaPrincipal() {
         
         opcionesPanel panelOpciones = new opcionesPanel(this); 
@@ -88,6 +90,24 @@ public class vistaPrincipal extends javax.swing.JFrame {
         this.add(panelGeneraER);
         initComponents();
     }
+    
+    public void setIngresosPorVenta(int ingresosPV){
+        ingresosPorVenta = ingresosPV;
+    }
+    
+    public int getIngresosPorVenta(){
+        return ingresosPorVenta;
+    }
+    
+    public void setCostosProduccion(int cp){
+        costoProduccion = cp;
+    }
+    
+    public int getCostosProduccion(){
+        return costoProduccion;
+    }
+    
+    
      
     //En este metodo realizo el intercambio de paneles dejanso visible el panel de interes
     // indicado por el entero n, y ocultando los demas paneles que no son de interes

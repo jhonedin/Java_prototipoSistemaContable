@@ -19,6 +19,8 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
      * Creates new form consultaReporteEstadoResultados
      */
     vistaPrincipal frame; // instancia frame del frame principal
+    private int ingresosPorVenta = 0;
+    private int costoProduccion = 0;
     public consultaReporteEstadoResultados(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
         initComponents();
@@ -98,8 +100,6 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
     }
     
   
-
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -296,7 +296,9 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
         int mF = convertirMestoNumero(ComboBoxMesFinal.getSelectedItem().toString());
         int aF = Integer.valueOf(txtAnioFechaFinal.getText());
         int ingresoPV = reporteERLogica.ingresosPorVenta(dI,mI,aI,dF,mF,aF);
+        frame.setIngresosPorVenta(ingresoPV);
         int cvCostoProduccion = reporteERLogica.calculoCVCostosProduccion(dI, mI, aI, dF, mF, aF); 
+        frame.setCostosProduccion(cvCostoProduccion);
         System.out.println("Ingreso por venta fue:"+ingresoPV);
         System.out.println("El costo de produccion fue:"+cvCostoProduccion);
         frame.swap(9); // hace el llamado al panel donde se muestra el estado de resultados calculado

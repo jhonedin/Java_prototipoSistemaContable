@@ -64,21 +64,23 @@ public class ReporteERLogica {
                 if(listaRegistrosIngresos.get(i).getMesreg()>=mI && listaRegistrosIngresos.get(i).getMesreg()<=mF){
                     if(listaRegistrosIngresos.get(i).getDiareg()>=dI && listaRegistrosIngresos.get(i).getDiareg()<=dF){
                         auxKardex = listaRegistrosIngresos.get(i).getCodigokardex(); // tomo el codigo kardex de la lista 
-                        posAux = i;
+                        /*posAux = i;
                         contador = 1;
                         for(int j=i+1;j<=listaRegistrosIngresos.size()-1;j++){
                             if(auxKardex.equals(listaRegistrosIngresos.get(j).getCodigokardex())){
                                 contador = contador + 1; // aqui cuento la cantidad de veces que se repite un codigo kardex
                             }
                         }
+                        */
                         listadoCU = listadoCULogica.llamarPorKardex(auxKardex); // traigo el objeto del listado de costo unitario segun su codigo kardex
                         valorUnitario = listadoCU.getCostounitario();
-                        valorParcial = valorUnitario * contador;
+                        //valorParcial = valorUnitario * contador;
+                        costoProduccion = costoProduccion + valorUnitario ;
                         
                     }
                 }
             }
-            costoProduccion = costoProduccion + valorParcial;
+            //costoProduccion = costoProduccion + valorParcial;
         }
         
         return costoProduccion;

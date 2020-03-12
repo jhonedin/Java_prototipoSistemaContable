@@ -26,9 +26,7 @@ public class reporteERPanel extends javax.swing.JPanel {
         //consultaRES = new consultaReporteEstadoResultados();
         initComponents();
         setBackground(Color.white);
-        //int IngresosPorVenta = reporteERLogica.ingresosPorVenta(dI,mI,aI,dF,mF,aF);
-        //txtIngresosPorVenta.setText("$ "+String.valueOf(IngresosPorVenta));
-        //txtCostoProduccion.setText("$ "+String.valueOf(reporteERLogica.calculoCVCostosProduccion()));
+        
     }
 
     /**
@@ -51,6 +49,7 @@ public class reporteERPanel extends javax.swing.JPanel {
         txtFechaInicial = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtFechaFinal = new javax.swing.JTextField();
+        btnActualizar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("REPORTE ESTADO DE RESULTADOS");
@@ -66,6 +65,13 @@ public class reporteERPanel extends javax.swing.JPanel {
         jLabel6.setText("Fecha Inicial: ");
 
         jLabel7.setText("Fecha Final:");
+
+        btnActualizar.setText("Actualizar");
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -96,20 +102,23 @@ public class reporteERPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(258, Short.MAX_VALUE))
+                        .addComponent(txtFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(btnActualizar)))
+                .addContainerGap(137, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel6)
                     .addComponent(txtFechaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(txtFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                    .addComponent(txtFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnActualizar))
+                .addGap(29, 29, 29)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -125,8 +134,17 @@ public class reporteERPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
+        // TODO add your handling code here:
+        int IngresosPorVenta = frame.getIngresosPorVenta();
+        int CostoProduccion = frame.getCostosProduccion();
+        txtIngresosPorVenta.setText("$ "+String.valueOf(IngresosPorVenta));
+        txtCostoProduccion.setText("$ "+String.valueOf(CostoProduccion));
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnActualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
