@@ -218,7 +218,7 @@ public class reporteERPanel extends javax.swing.JPanel {
         jLabel23.setText("UTILIDAD ANTES DE IMPUESTO");
 
         jTextField8.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextField8.setText(" $ 234128  ");
+        jTextField8.setText(" $ 137206  ");
 
         jLabel24.setText("UTILIDAD NETA DE EJERCICIO");
 
@@ -227,13 +227,13 @@ public class reporteERPanel extends javax.swing.JPanel {
         jLabel26.setText("MARGEN OPERATIVO");
 
         jTextField9.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextField9.setText(" $ 234.128  ");
+        jTextField9.setText(" $ 137206  ");
 
         jTextField10.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextField10.setText("0,64 ");
+        jTextField10.setText("0,71 ");
 
         jTextField11.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextField11.setText("0,34 ");
+        jTextField11.setText("0,31 ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
