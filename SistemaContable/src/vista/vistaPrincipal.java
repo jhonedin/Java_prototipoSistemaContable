@@ -19,6 +19,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
     JPanel panels[] = new JPanel[10]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
     private int ingresosPorVenta = 0;
     private int costoProduccion = 0;
+    private int utilidadBruta = 0;
+    private String fechaInicial = "";
+    private String fechaFinal = "";
     public vistaPrincipal() {
         
         opcionesPanel panelOpciones = new opcionesPanel(this); 
@@ -107,7 +110,29 @@ public class vistaPrincipal extends javax.swing.JFrame {
         return costoProduccion;
     }
     
+    public void setUtilidadBruta(int ub){
+        utilidadBruta = ub;
+    }
     
+    public int getUtilidadBruta(){
+        return utilidadBruta;
+    }
+    
+    public void setFechaInicial(int dI,int mI,int aI){
+        fechaInicial = String.valueOf(aI)+"-"+String.valueOf(mI)+"-"+String.valueOf(dI);
+    }
+    
+    public String getFechaInicial(){
+        return fechaInicial;
+    }
+    
+    public void setFechaFinal(int dF,int mF,int aF){
+        fechaFinal = String.valueOf(aF)+"-"+String.valueOf(mF)+"-"+String.valueOf(dF);
+    }
+    
+    public String getFechaFinal(){
+        return fechaFinal;
+    }
      
     //En este metodo realizo el intercambio de paneles dejanso visible el panel de interes
     // indicado por el entero n, y ocultando los demas paneles que no son de interes

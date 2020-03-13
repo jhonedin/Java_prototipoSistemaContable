@@ -288,19 +288,23 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
         try {
         ReporteERLogica reporteERLogica = new ReporteERLogica(); 
         int IngresoPorVenta = 0;
-        
+        int UtilidadBruta = 0;
         int dI = Integer.valueOf(txtDiaFechaInicial.getText());
         int mI = convertirMestoNumero(ComboBoxMesInicial.getSelectedItem().toString());
         int aI = Integer.valueOf(txtAnioFechaInicial.getText());
         int dF = Integer.valueOf(txtDiaFechaFinal.getText());
         int mF = convertirMestoNumero(ComboBoxMesFinal.getSelectedItem().toString());
         int aF = Integer.valueOf(txtAnioFechaFinal.getText());
+        frame.setFechaInicial(dI, mI, aI);
+        frame.setFechaFinal(dF, mF, aF);
         int ingresoPV = reporteERLogica.ingresosPorVenta(dI,mI,aI,dF,mF,aF);
         frame.setIngresosPorVenta(ingresoPV);
         int cvCostoProduccion = reporteERLogica.calculoCVCostosProduccion(dI, mI, aI, dF, mF, aF); 
         frame.setCostosProduccion(cvCostoProduccion);
         System.out.println("Ingreso por venta fue:"+ingresoPV);
         System.out.println("El costo de produccion fue:"+cvCostoProduccion);
+        UtilidadBruta = ingresoPV - cvCostoProduccion;
+        frame.setUtilidadBruta(UtilidadBruta);
         frame.swap(9); // hace el llamado al panel donde se muestra el estado de resultados calculado
         }catch (NumberFormatException nfe) {
             JOptionPane.showMessageDialog(null, "Error, no pueden existir campos vacios");
