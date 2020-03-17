@@ -23,6 +23,11 @@ public class ReporteERLogica {
         
     }
     
+    public int utilidadBruta(int IngresoVenta, int CostoVenta){
+        int utilidad = IngresoVenta - CostoVenta;
+        return utilidad;
+    }
+    
     public int ingresosPorVenta(int dI,int mI,int aI,int dF,int mF,int aF){
         registroIngresoLogica = new RegistroIngresoLogica();
         List<Registroingresos> listaRegistrosIngresos = registroIngresoLogica.listarRegistrosIngresos();

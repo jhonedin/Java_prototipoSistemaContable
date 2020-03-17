@@ -303,7 +303,7 @@ public class consultaReporteEstadoResultados extends javax.swing.JPanel {
         frame.setCostosProduccion(cvCostoProduccion);
         System.out.println("Ingreso por venta fue:"+ingresoPV);
         System.out.println("El costo de produccion fue:"+cvCostoProduccion);
-        UtilidadBruta = ingresoPV - cvCostoProduccion;
+        UtilidadBruta = reporteERLogica.utilidadBruta(ingresoPV,cvCostoProduccion);//ingresoPV - cvCostoProduccion;
         frame.setUtilidadBruta(UtilidadBruta);
         frame.swap(9); // hace el llamado al panel donde se muestra el estado de resultados calculado
         }catch (NumberFormatException nfe) {
