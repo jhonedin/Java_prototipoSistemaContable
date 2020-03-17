@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.Puc;
@@ -22,7 +23,11 @@ import persistencia.exceptions.PreexistingEntityException;
  * @author Jhon
  */
 public class PucJpaController implements Serializable {
-
+    
+    public PucJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("SistemaContablePU");
+    }
+    
     public PucJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }

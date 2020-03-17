@@ -5,10 +5,23 @@
  */
 package logica;
 
+import java.util.List;
+import modelo.Puc;
+import persistencia.PucJpaController;
+
 /**
  *
  * @author Jhon
  */
 public class PucLogica {
+    PucJpaController pucDAO;
+    
+    public PucLogica() {
+        pucDAO = new PucJpaController();
+    }
+    
+    public List<Puc> listarRegistrosCostos(){
+        return pucDAO.findPucEntities(); // retorna todo el listado de las puc 
+    }
     
 }
