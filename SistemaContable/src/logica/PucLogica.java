@@ -20,8 +20,13 @@ public class PucLogica {
         pucDAO = new PucJpaController();
     }
     
-    public List<Puc> listarRegistrosCostos(){
+    public List<Puc> listarPuc(){
         return pucDAO.findPucEntities(); // retorna todo el listado de las puc 
+    }
+    
+    public Puc buscarPucxcodigo(String codigo){
+        Puc unpuc;
+        return unpuc = pucDAO.findPuc(codigo); 
     }
     
 }

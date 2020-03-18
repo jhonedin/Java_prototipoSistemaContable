@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import modelo.Centrodecostos;
@@ -22,7 +23,11 @@ import persistencia.exceptions.PreexistingEntityException;
  * @author Jhon
  */
 public class CentrodecostosJpaController implements Serializable {
-
+    
+    public CentrodecostosJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("SistemaContablePU");;
+    }
+    
     public CentrodecostosJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
