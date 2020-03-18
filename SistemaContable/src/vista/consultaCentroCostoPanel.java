@@ -6,6 +6,11 @@
 package vista;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import logica.CentroCostosLogica;
+import modelo.Centrodecostos;
 
 /**
  *
@@ -17,12 +22,44 @@ public class consultaCentroCostoPanel extends javax.swing.JPanel {
      * Creates new form consultaCentroCostoPanel
      */
     vistaPrincipal frame; // instancia frame del frame principal
+    DefaultTableModel modelo;
+    private Centrodecostos centrodecostos;
+    private CentroCostosLogica centrocostosLogica;
+    private List<Centrodecostos> listaCentrocostos;
     public consultaCentroCostoPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
+        listaCentrocostos = new ArrayList<Centrodecostos>();
+        centrodecostos = new Centrodecostos(); 
+        centrocostosLogica = new CentroCostosLogica();
         initComponents();
         setBackground(Color.white);
+        listaCentrocostos = centrocostosLogica.listarCentroCostos();
+        llenarTablaIngresos(listaCentrocostos);
     }
 
+    public void llenarTablaIngresos(List<Centrodecostos> centrocostos){
+        
+        List<Centrodecostos> lista;
+        lista = centrocostos;
+        setTabla(lista);
+    }
+    
+    public void setTabla(List<Centrodecostos> pucLista){
+        modelo =  (DefaultTableModel) tableCentrodeCostos.getModel();
+        
+        int size = modelo.getRowCount();
+        for(int i=0; i < size; i++){
+            modelo.removeRow(0);
+        }
+        String aux[];
+        for(int j=0;j< pucLista.size();j++){
+            aux = new String[2];
+            aux[0] = pucLista.get(j).getCodigo();
+            aux[1] = pucLista.get(j).getNombre();
+            modelo.addRow(aux);
+        }
+    }    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,8 +71,11 @@ public class consultaCentroCostoPanel extends javax.swing.JPanel {
 
         labelTitulo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableCentrodeCostos = new javax.swing.JTable();
 
-        labelTitulo.setText("CONSULTA CENTRO DE COSTOS");
+        labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        labelTitulo.setText("Consulta de Centro de Costos");
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -44,25 +84,53 @@ public class consultaCentroCostoPanel extends javax.swing.JPanel {
             }
         });
 
+        tableCentrodeCostos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Codigo", "Nombre"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableCentrodeCostos);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnVolver)
-                    .addComponent(labelTitulo))
-                .addContainerGap(694, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(49, 49, 49)
+                            .addComponent(labelTitulo))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(210, 210, 210)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(238, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addComponent(labelTitulo)
-                .addGap(40, 40, 40)
+                .addGap(90, 90, 90)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(btnVolver)
-                .addContainerGap(524, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -74,6 +142,8 @@ public class consultaCentroCostoPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnVolver;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JTable tableCentrodeCostos;
     // End of variables declaration//GEN-END:variables
 }

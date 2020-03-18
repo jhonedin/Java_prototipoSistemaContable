@@ -71,6 +71,11 @@ public class consultasPanel extends javax.swing.JPanel {
         btnConsultaCodigoKardex.setText("Códigos Kárdex (Inventarios)");
 
         jButton1.setText("Base de datos Terceros");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Reporte Inventarios");
 
@@ -158,6 +163,11 @@ public class consultasPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(8); // hace el llamado al panel de Reporte de estados de resultados
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        frame.swap(10); // hace el llamado al panel de consultas de terceros
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

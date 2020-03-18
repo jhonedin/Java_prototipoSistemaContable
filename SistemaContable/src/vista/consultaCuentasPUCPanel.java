@@ -79,7 +79,7 @@ public class consultaCuentasPUCPanel extends javax.swing.JPanel {
         btnBuscar = new javax.swing.JButton();
 
         labeltitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        labeltitulo.setText("Cuentas PUC");
+        labeltitulo.setText("Consulta de cuentas PUC");
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
