@@ -25,7 +25,7 @@ import persistencia.exceptions.PreexistingEntityException;
 public class CentrodecostosJpaController implements Serializable {
     
     public CentrodecostosJpaController() {
-        this.emf = Persistence.createEntityManagerFactory("SistemaContablePU");;
+        this.emf = Persistence.createEntityManagerFactory("SistemaContablePU");
     }
     
     public CentrodecostosJpaController(EntityManagerFactory emf) {

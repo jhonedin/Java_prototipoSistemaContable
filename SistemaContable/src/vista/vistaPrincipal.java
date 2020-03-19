@@ -98,7 +98,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         this.add(panelGeneraER);
         this.add(panelConsultaTerceros);
         initComponents();
-        hollaaaaaaaaa
+        //hollaaaaaaaaa
     }
     
     public void setIngresosPorVenta(int ingresosPV){

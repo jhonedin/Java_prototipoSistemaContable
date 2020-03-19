@@ -6,6 +6,11 @@
 package vista;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import logica.ListadoTercerosLogica;
+import modelo.Listadoterceros;
 
 /**
  *
@@ -17,11 +22,53 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
      * Creates new form consultaTercerosPanel
      */
     vistaPrincipal frame; // instancia frame del frame principal
+    DefaultTableModel modelo;
+    private Listadoterceros listadoTerceros;
+    private ListadoTercerosLogica listadoTercerosLogica;
+    private List<Listadoterceros> listaTerceros;
+    private List<Listadoterceros> listaTercerosAux;
     public consultaTercerosPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
+        listaTerceros = new ArrayList<Listadoterceros>();
+        listadoTercerosLogica = new ListadoTercerosLogica();
         initComponents();
         setBackground(Color.white);
+        ComboBoxBuscarTipo.removeAllItems();
+        ComboBoxBuscarTipo.addItem("Cliente");
+        ComboBoxBuscarTipo.addItem("Proveedor");
+        ComboBoxBuscarTipo.addItem("Otros");
+        listaTerceros = listadoTercerosLogica.listarTerceros();
+        llenarTablaIngresos(listaTerceros);
     }
+    
+    public void llenarTablaIngresos(List<Listadoterceros> terceros){
+        List<Listadoterceros> lista;
+        lista = terceros;
+        setTabla(lista);
+    }
+    
+    public void setTabla(List<Listadoterceros> tercerosLista){
+        modelo =  (DefaultTableModel) tableTerceros.getModel();
+        
+        int size = modelo.getRowCount();
+        for(int i=0; i < size; i++){
+            modelo.removeRow(0);
+        }
+        String aux[];
+        for(int j=0;j< tercerosLista.size();j++){
+            aux = new String[6];
+            aux[0] = String.valueOf(tercerosLista.get(j).getId());
+            aux[1] = tercerosLista.get(j).getTipo();
+            aux[2] = tercerosLista.get(j).getCconit();
+            aux[3] = tercerosLista.get(j).getNombre();
+            aux[4] = tercerosLista.get(j).getDireccion();
+            aux[5] = tercerosLista.get(j).getTelefono();
+            
+            modelo.addRow(aux);
+        }
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,8 +79,28 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         labelTitulo = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtBusquedaID = new javax.swing.JTextField();
+        txtBusquedaIdentificacion = new javax.swing.JTextField();
+        btnBusquedaID = new javax.swing.JButton();
+        btnBusquedaIdentificacion = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableTerceros = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        txtBusquedaNombre = new javax.swing.JTextField();
+        btnBusquedaNombre = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        ComboBoxBuscarTipo = new javax.swing.JComboBox<>();
+        btnBuscarTipo = new javax.swing.JButton();
+
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setText("jLabel2");
 
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         labelTitulo.setText("Consulta listado de terceros");
@@ -45,25 +112,111 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setText("Buscar ID que comiencen por:");
+
+        jLabel4.setText("Buscar N° Identificación que comience por:");
+
+        btnBusquedaID.setText("Buscar");
+
+        btnBusquedaIdentificacion.setText("Buscar");
+
+        tableTerceros.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Tipo", "N° Identificación", "Nombre", "Direccion", "Telefono"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableTerceros);
+
+        jLabel5.setText("Buscar Nombre que comience por:");
+
+        btnBusquedaNombre.setText("Buscar");
+
+        jLabel6.setText("Buscar por tipo:");
+
+        ComboBoxBuscarTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnBuscarTipo.setText("Buscar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnVolver)
-                    .addComponent(labelTitulo))
-                .addContainerGap(661, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(labelTitulo)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtBusquedaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBusquedaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtBusquedaIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBusquedaIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtBusquedaID, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnBusquedaID, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ComboBoxBuscarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBuscarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addComponent(labelTitulo)
-                .addGap(60, 60, 60)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtBusquedaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusquedaID)
+                    .addComponent(jLabel6)
+                    .addComponent(ComboBoxBuscarTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarTipo))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtBusquedaIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusquedaIdentificacion))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtBusquedaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBusquedaNombre))
+                .addGap(39, 39, 39)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnVolver)
-                .addContainerGap(507, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -74,7 +227,23 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBoxBuscarTipo;
+    private javax.swing.JButton btnBuscarTipo;
+    private javax.swing.JButton btnBusquedaID;
+    private javax.swing.JButton btnBusquedaIdentificacion;
+    private javax.swing.JButton btnBusquedaNombre;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JTable tableTerceros;
+    private javax.swing.JTextField txtBusquedaID;
+    private javax.swing.JTextField txtBusquedaIdentificacion;
+    private javax.swing.JTextField txtBusquedaNombre;
     // End of variables declaration//GEN-END:variables
 }
