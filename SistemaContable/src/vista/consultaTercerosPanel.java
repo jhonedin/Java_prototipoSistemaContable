@@ -38,10 +38,10 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
         ComboBoxBuscarTipo.addItem("Proveedor");
         ComboBoxBuscarTipo.addItem("Otros");
         listaTerceros = listadoTercerosLogica.listarTerceros();
-        llenarTablaIngresos(listaTerceros);
+        llenarTablaTerceros(listaTerceros);
     }
     
-    public void llenarTablaIngresos(List<Listadoterceros> terceros){
+    public void llenarTablaTerceros(List<Listadoterceros> terceros){
         List<Listadoterceros> lista;
         lista = terceros;
         setTabla(lista);
@@ -117,8 +117,18 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
         jLabel4.setText("Buscar N° Identificación que comience por:");
 
         btnBusquedaID.setText("Buscar");
+        btnBusquedaID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaIDActionPerformed(evt);
+            }
+        });
 
         btnBusquedaIdentificacion.setText("Buscar");
+        btnBusquedaIdentificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaIdentificacionActionPerformed(evt);
+            }
+        });
 
         tableTerceros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -224,6 +234,52 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(5); // hace el llamado al panel de consultas
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnBusquedaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaIDActionPerformed
+        // TODO add your handling code here:
+        listaTerceros = new ArrayList<Listadoterceros>();
+        listaTercerosAux = new ArrayList<Listadoterceros>();
+        listadoTercerosLogica = new ListadoTercerosLogica();
+        listaTerceros = listadoTercerosLogica.listarTerceros();
+        if(txtBusquedaID.getText()==""){
+          listaTercerosAux = listaTerceros;
+        }
+        else{
+            for(int i=0;i<=listaTerceros.size()-1;i++){
+                if(String.valueOf(listaTerceros.get(i).getId()).startsWith(txtBusquedaID.getText())){
+                    listaTercerosAux.add(listaTerceros.get(i));
+                }
+            }
+        }
+        llenarTablaTerceros(listaTercerosAux);
+    }//GEN-LAST:event_btnBusquedaIDActionPerformed
+
+    private void btnBusquedaIdentificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaIdentificacionActionPerformed
+        // TODO add your handling code here:
+        listaTerceros = new ArrayList<Listadoterceros>();
+        listaTercerosAux = new ArrayList<Listadoterceros>();
+        listadoTercerosLogica = new ListadoTercerosLogica();
+        listaTerceros = listadoTercerosLogica.listarTerceros();
+        String identificacionObj = "";
+        String identificacionCampo = "";
+        if(txtBusquedaIdentificacion.getText()==""){
+          listaTercerosAux = listaTerceros;
+        }
+        else{
+            for(int i=0;i<=listaTerceros.size()-1;i++){
+                identificacionObj = listaTerceros.get(i).getCconit();
+                identificacionCampo = txtBusquedaIdentificacion.getText();
+                System.out.println("texto del objeto: "+identificacionObj+" --- "+"Texto del campo:" +identificacionCampo);
+                if(identificacionObj != "" && identificacionObj.startsWith(identificacionCampo)){
+                    listaTercerosAux.add(listaTerceros.get(i));
+                }
+                else{
+                   
+                    System.out.println("No cumplio con busqueda por identificacion");
+                }
+            }
+        }
+    }//GEN-LAST:event_btnBusquedaIdentificacionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
