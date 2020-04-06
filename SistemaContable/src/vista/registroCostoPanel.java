@@ -83,6 +83,10 @@ public class registroCostoPanel extends javax.swing.JPanel {
         }
     }    
     
+    public void setCampoPucSelectCosto(String codigopuc,String nombre){
+        txtCuentaPUC.setText(codigopuc+"-"+nombre);
+    }
+    
     
 
     /**
@@ -152,6 +156,11 @@ public class registroCostoPanel extends javax.swing.JPanel {
         labelCuentaPUC.setText("Cuenta PUC:");
 
         btnConsultarPUC.setText("Consultar PUC");
+        btnConsultarPUC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarPUCActionPerformed(evt);
+            }
+        });
 
         labelCodigoKardex.setText("Codigo Kardex:");
 
@@ -315,6 +324,11 @@ public class registroCostoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(0); // hace el llamado al panel de opciones
     }//GEN-LAST:event_btnVolverRegistroCostoActionPerformed
+
+    private void btnConsultarPUCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarPUCActionPerformed
+        // TODO add your handling code here:
+        frame.swap(13); // hace el llamado al panel de consultar y seleccionar una cuenta PUC para costo
+    }//GEN-LAST:event_btnConsultarPUCActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

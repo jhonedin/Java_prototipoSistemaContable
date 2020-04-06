@@ -16,7 +16,7 @@ import modelo.Listadoterceros;
  *
  * @author Usuario
  */
-public class consultaTercerosPanel extends javax.swing.JPanel {
+public class selectTerceroIngresoPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form consultaTercerosPanel
@@ -27,7 +27,7 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
     private ListadoTercerosLogica listadoTercerosLogica;
     private List<Listadoterceros> listaTerceros;
     private List<Listadoterceros> listaTercerosAux;
-    public consultaTercerosPanel(vistaPrincipal frame) {
+    public selectTerceroIngresoPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
         listaTerceros = new ArrayList<Listadoterceros>();
         listadoTercerosLogica = new ListadoTercerosLogica();
@@ -83,7 +83,7 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         labelTitulo = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JButton();
+        btnSeleccionar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtBusquedaID = new javax.swing.JTextField();
@@ -106,10 +106,10 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         labelTitulo.setText("Consulta listado de terceros");
 
-        btnVolver.setText("Volver");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
+                btnSeleccionarActionPerformed(evt);
             }
         });
 
@@ -185,7 +185,7 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnVolver)
+                    .addComponent(btnSeleccionar)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(labelTitulo)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -242,15 +242,15 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnVolver)
+                .addComponent(btnSeleccionar)
                 .addContainerGap(107, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
-        frame.swap(5); // hace el llamado al panel de consultas
-    }//GEN-LAST:event_btnVolverActionPerformed
+        frame.swap(1); // hace el llamado al panel de registro de ingresos
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnBusquedaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaIDActionPerformed
         // TODO add your handling code here:
@@ -364,7 +364,7 @@ public class consultaTercerosPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBusquedaID;
     private javax.swing.JButton btnBusquedaIdentificacion;
     private javax.swing.JButton btnBusquedaNombre;
-    private javax.swing.JButton btnVolver;
+    private javax.swing.JButton btnSeleccionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -69,6 +69,11 @@ public class consultasPanel extends javax.swing.JPanel {
         });
 
         btnConsultaCodigoKardex.setText("Códigos Kárdex (Inventarios)");
+        btnConsultaCodigoKardex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultaCodigoKardexActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Base de datos Terceros");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -168,6 +173,11 @@ public class consultasPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(10); // hace el llamado al panel de consultas de terceros
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnConsultaCodigoKardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaCodigoKardexActionPerformed
+        // TODO add your handling code here:
+        frame.swap(11); // hace el llamado al panel de consultas de inventarios
+    }//GEN-LAST:event_btnConsultaCodigoKardexActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

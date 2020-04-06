@@ -82,6 +82,10 @@ public class registroGastoPanel extends javax.swing.JPanel {
             modelo.addRow(aux);
         }
     }
+    
+    public void setCampoPucSelectGasto(String codigopuc,String nombre){
+        txtCuentaPUC.setText(codigopuc+"-"+nombre);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -147,6 +151,11 @@ public class registroGastoPanel extends javax.swing.JPanel {
         labelCuentaPUC.setText("Cuenta PUC:");
 
         btnConsultarPUC.setText("Consultar PUC");
+        btnConsultarPUC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarPUCActionPerformed(evt);
+            }
+        });
 
         labelIDTercero.setText("ID Tercero:");
 
@@ -191,62 +200,62 @@ public class registroGastoPanel extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnVolverRegistroGasto)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelTitulo)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(labelCentroCosto)
-                                .addComponent(labelFechaRegistro)
-                                .addComponent(labelObservaciones)
-                                .addComponent(btnRegistro)
-                                .addComponent(labelIDTercero))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(16, 16, 16)
-                                    .addComponent(labelDia)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(labelMes)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(24, 24, 24)
-                                    .addComponent(labelAnio)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(labelValor)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(btnConsultarCentroCosto))
-                                                .addComponent(txtConsultarTercero))
-                                            .addGap(22, 22, 22)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelTitulo)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labelCentroCosto)
+                                    .addComponent(labelFechaRegistro)
+                                    .addComponent(labelObservaciones)
+                                    .addComponent(btnRegistro)
+                                    .addComponent(labelIDTercero))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(16, 16, 16)
+                                        .addComponent(labelDia)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtDia, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(labelMes)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ComboBoxMes, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(labelAnio)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(labelValor)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(btnConsultarCentroCosto))
+                                                    .addComponent(txtConsultarTercero))
+                                                .addGap(22, 22, 22)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(btnConsultarTercero)
-                                                    .addGap(0, 0, Short.MAX_VALUE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(labelCuentaPUC)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(txtCuentaPUC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(btnConsultarPUC))))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(btnConsultar)
-                                    .addGap(31, 31, 31)
-                                    .addComponent(jButton1))))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(labelCuentaPUC)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(txtCuentaPUC, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(btnConsultarPUC))))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(30, 30, 30)
+                                        .addComponent(btnConsultar)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(jButton1))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 807, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(157, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -299,6 +308,11 @@ public class registroGastoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(0); // hace el llamado al panel de opciones
     }//GEN-LAST:event_btnVolverRegistroGastoActionPerformed
+
+    private void btnConsultarPUCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarPUCActionPerformed
+        // TODO add your handling code here:
+        frame.swap(14); // hace el llamado al panel de consultar y seleccionar una cuenta PUC para gasto
+    }//GEN-LAST:event_btnConsultarPUCActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

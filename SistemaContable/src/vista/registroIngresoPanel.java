@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import logica.RegistroIngresoLogica;
+import modelo.Puc;
 import modelo.Registroingresos;
 
 /**
@@ -23,6 +24,7 @@ public class registroIngresoPanel extends javax.swing.JPanel {
      */
     vistaPrincipal frame; // instancia frame del frame principal
     DefaultTableModel modelo;
+    private Puc puc;
     private Registroingresos registroingresos;
     private RegistroIngresoLogica registroingresoLogica;
     private List<Registroingresos> listaRegistroIngresos;
@@ -85,6 +87,10 @@ public class registroIngresoPanel extends javax.swing.JPanel {
             modelo.addRow(aux);
         }
     }
+    
+    public void setCampoPucSelectIngreso(String codigopuc,String nombre){
+        txtCuentaPuc.setText(codigopuc+"-"+nombre);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -146,6 +152,11 @@ public class registroIngresoPanel extends javax.swing.JPanel {
         labelAnio.setText("Año:");
 
         btnVerCodPuc.setText("Consultar PUC");
+        btnVerCodPuc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerCodPucActionPerformed(evt);
+            }
+        });
 
         labelCodigoKardex.setText("Codigo Kardex:");
 
@@ -192,6 +203,11 @@ public class registroIngresoPanel extends javax.swing.JPanel {
         labelNumIdenTercereo.setText("ID Tercero:");
 
         btnConsultarTercero.setText("Consultar Tercero");
+        btnConsultarTercero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarTerceroActionPerformed(evt);
+            }
+        });
 
         txtDia.setPreferredSize(new java.awt.Dimension(50, 25));
 
@@ -308,6 +324,16 @@ public class registroIngresoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(0); // hace el llamado al panel de opciones
     }//GEN-LAST:event_btnVolverRegistroIngresoActionPerformed
+
+    private void btnVerCodPucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCodPucActionPerformed
+        // TODO add your handling code here:
+         frame.swap(12); // hace el llamado al panel de consultar y seleccionar una cuenta PUC      
+    }//GEN-LAST:event_btnVerCodPucActionPerformed
+
+    private void btnConsultarTerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarTerceroActionPerformed
+        // TODO add your handling code here:
+        frame.swap(15); // hace el llamado al panel de consultar y seleccionar un tercero
+    }//GEN-LAST:event_btnConsultarTerceroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

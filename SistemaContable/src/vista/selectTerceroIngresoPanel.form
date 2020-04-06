@@ -31,7 +31,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSeleccionar" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelTitulo" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" alignment="0" min="-2" pref="800" max="-2" attributes="0"/>
@@ -101,7 +101,7 @@
               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="264" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
+              <Component id="btnSeleccionar" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="107" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -116,12 +116,12 @@
         <Property name="text" type="java.lang.String" value="Consulta listado de terceros"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnVolver">
+    <Component class="javax.swing.JButton" name="btnSeleccionar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Volver"/>
+        <Property name="text" type="java.lang.String" value="Seleccionar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSeleccionarActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
