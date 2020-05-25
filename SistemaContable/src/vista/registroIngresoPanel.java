@@ -91,6 +91,10 @@ public class registroIngresoPanel extends javax.swing.JPanel {
     public void setCampoPucSelectIngreso(String codigopuc,String nombre){
         txtCuentaPuc.setText(codigopuc+"-"+nombre);
     }
+    
+    public void setCampoTerceroSelectIngreso(int id,String cconit,String nombre){
+        txtNumIdenTercero.setText(id+"-"+nombre+"-"+cconit);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -332,7 +336,7 @@ public class registroIngresoPanel extends javax.swing.JPanel {
 
     private void btnConsultarTerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarTerceroActionPerformed
         // TODO add your handling code here:
-        frame.swap(15); // hace el llamado al panel de consultar y seleccionar un tercero
+        frame.swap(15); // hace el llamado al panel de consultar y seleccionar un tercero para ingreso
     }//GEN-LAST:event_btnConsultarTerceroActionPerformed
 
 

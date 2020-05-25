@@ -28,9 +28,14 @@ public class ListadoTercerosLogica {
         return listadoTercerosDAO.findListadotercerosEntities(); // retorna todo el listado de las puc 
     }    
     
-    public Listadoterceros buscarTerceroxcodigo(String codigo){
+    public Listadoterceros buscarTerceroID(int ID){
         listadoTerceros = this.listarTerceros();
         unTercero = new Listadoterceros();
+        for(int i=0;i<=listadoTerceros.size()-1;i++){
+            if(listadoTerceros.get(i).getId().intValue()==ID){
+                unTercero = listadoTerceros.get(i);
+            }
+        }
         
         return unTercero; 
     }

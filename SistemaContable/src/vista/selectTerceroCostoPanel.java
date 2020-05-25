@@ -16,7 +16,7 @@ import modelo.Listadoterceros;
  *
  * @author Usuario
  */
-public class selectTerceroIngresoPanel extends javax.swing.JPanel {
+public class selectTerceroCostoPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form consultaTercerosPanel
@@ -27,7 +27,7 @@ public class selectTerceroIngresoPanel extends javax.swing.JPanel {
     private ListadoTercerosLogica listadoTercerosLogica;
     private List<Listadoterceros> listaTerceros;
     private List<Listadoterceros> listaTercerosAux;
-    public selectTerceroIngresoPanel(vistaPrincipal frame) {
+    public selectTerceroCostoPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
         listaTerceros = new ArrayList<Listadoterceros>();
         listadoTercerosLogica = new ListadoTercerosLogica();
@@ -258,8 +258,8 @@ public class selectTerceroIngresoPanel extends javax.swing.JPanel {
         int idSelect = 0;
         idSelect = listaTerceros.get(filaSelect).getId().intValue();
         listadoTerceros = listadoTercerosLogica.buscarTerceroID(idSelect);
-        frame.setTerceroIngreso(listadoTerceros);
-        frame.swap(1); // hace el llamado al panel de registro de ingresos
+        frame.setTerceroCosto(listadoTerceros);
+        frame.swap(2); // hace el llamado al panel de registro de Costo
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnBusquedaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaIDActionPerformed

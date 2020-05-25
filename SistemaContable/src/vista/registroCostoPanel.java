@@ -87,6 +87,10 @@ public class registroCostoPanel extends javax.swing.JPanel {
         txtCuentaPUC.setText(codigopuc+"-"+nombre);
     }
     
+    public void setCampoTerceroSelectCosto(int id,String cconit,String nombre){
+        txtIDTercero.setText(id+"-"+nombre+"-"+cconit);
+    }
+    
     
 
     /**
@@ -200,6 +204,11 @@ public class registroCostoPanel extends javax.swing.JPanel {
         labelIDTercero.setText("ID Tercero:");
 
         btnConsultarTercero.setText("Consultar Tercero");
+        btnConsultarTercero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarTerceroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -329,6 +338,11 @@ public class registroCostoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(13); // hace el llamado al panel de consultar y seleccionar una cuenta PUC para costo
     }//GEN-LAST:event_btnConsultarPUCActionPerformed
+
+    private void btnConsultarTerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarTerceroActionPerformed
+        // TODO add your handling code here:
+        frame.swap(16); // hace el llamado al panel de consultar y seleccionar un tercero para costo
+    }//GEN-LAST:event_btnConsultarTerceroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

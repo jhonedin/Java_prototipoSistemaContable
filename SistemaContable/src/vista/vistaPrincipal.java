@@ -6,6 +6,7 @@
 package vista;
 
 import javax.swing.JPanel;
+import modelo.Listadoterceros;
 import modelo.Puc;
 
 /**
@@ -17,13 +18,14 @@ public class vistaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form vistaPrincipal
      */
-    JPanel panels[] = new JPanel[16]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
+    JPanel panels[] = new JPanel[18]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
     private int ingresosPorVenta = 0;
     private int costoProduccion = 0;
     private int utilidadBruta = 0;
     private String fechaInicial = "";
     private String fechaFinal = "";
     private Puc puc;
+    private Listadoterceros tercero;
     private registroIngresoPanel panelRegistroIngresoAux;
     private registroCostoPanel panelRegistroCostoAux;
     private registroGastoPanel panelRegistroGastoAux;
@@ -102,23 +104,33 @@ public class vistaPrincipal extends javax.swing.JFrame {
         
         selectPUCPanel panelSelectPUC = new selectPUCPanel(this); 
         panelSelectPUC.setBounds(0, 0, 900, 650);
-        agregarPanel(12,panelSelectPUC); // Panel 12 - Panel de consulta de inventarios
+        agregarPanel(12,panelSelectPUC); // Panel 12 - Panel de consulta y seleccion de un PUC en ingresojuttt5rtftg
         panelSelectPUC.setVisible(false);
         
         selectPUCPanelCosto panelSelectPUCCosto = new selectPUCPanelCosto(this); 
         panelSelectPUCCosto.setBounds(0, 0, 900, 650);
-        agregarPanel(13,panelSelectPUCCosto); // Panel 13 - Panel de consulta de inventarios
+        agregarPanel(13,panelSelectPUCCosto); // Panel 13 - Panel de consulta y seleccion de un PUC en Costo
         panelSelectPUC.setVisible(false);
         
         selectPUCGasto panelSelectPUCGasto = new selectPUCGasto(this); 
         panelSelectPUCGasto.setBounds(0, 0, 900, 650);
-        agregarPanel(14,panelSelectPUCGasto); // Panel 14 - Panel de consulta de inventarios
+        agregarPanel(14,panelSelectPUCGasto); // Panel 14 - Panel de consulta y seleccion de un PUC en Gasto
         panelSelectPUC.setVisible(false);
         
         selectTerceroIngresoPanel panelSelectTerceroIngreso = new selectTerceroIngresoPanel(this); 
         panelSelectTerceroIngreso.setBounds(0, 0, 900, 650);
-        agregarPanel(15,panelSelectTerceroIngreso); // Panel 15 - Panel de consulta de inventarios
+        agregarPanel(15,panelSelectTerceroIngreso); // Panel 15 - Panel de consulta  y seleccion de un tercero
         panelSelectTerceroIngreso.setVisible(false);
+        
+        selectTerceroCostoPanel panelSelectTerceroCosto = new selectTerceroCostoPanel(this); 
+        panelSelectTerceroCosto.setBounds(0, 0, 900, 650);
+        agregarPanel(16,panelSelectTerceroCosto); // Panel 16 - Panel de consulta  y seleccion de un tercero
+        panelSelectTerceroCosto.setVisible(false);  
+        
+        selectTerceroGastoPanel panelSelectTerceroGasto = new selectTerceroGastoPanel(this);
+        panelSelectTerceroGasto.setBounds(0, 0, 900, 650);
+        agregarPanel(17,panelSelectTerceroGasto); // Panel 17 - Panel de consulta  y seleccion de un tercero en Gasto
+        panelSelectTerceroGasto.setVisible(false);  
         
         this.add(panelOpciones);
         this.add(panelRegistroIngreso);
@@ -135,7 +147,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
         this.add(panelSelectPUC);
         this.add(panelSelectPUCCosto);
         this.add(panelSelectPUCGasto);
-         this.add(panelSelectTerceroIngreso);
+        this.add(panelSelectTerceroIngreso);
+        this.add(panelSelectTerceroCosto);
+        this.add(panelSelectTerceroGasto);
         initComponents();
         //hollaaaaaaaaa
     }
@@ -159,7 +173,24 @@ public class vistaPrincipal extends javax.swing.JFrame {
     
     public Puc getPucSelectIngresos(){
         return puc;
+        
     }
+    
+    public void setTerceroIngreso(Listadoterceros unTercero){
+        tercero = unTercero;
+        panelRegistroIngresoAux.setCampoTerceroSelectIngreso( tercero.getId().intValue() , tercero.getCconit() , tercero.getNombre());
+    }
+    
+    public void setTerceroCosto(Listadoterceros unTercero){
+        tercero = unTercero;
+        panelRegistroCostoAux.setCampoTerceroSelectCosto(tercero.getId().intValue(),tercero.getCconit(), tercero.getNombre());
+    }
+    
+    public void setTerceroGasto(Listadoterceros unTercero){
+        tercero = unTercero;
+        panelRegistroGastoAux.setCampoTerceroSelectGasto(tercero.getId().intValue(),tercero.getCconit(), tercero.getNombre());
+    }
+    
     
     public void setIngresosPorVenta(int ingresosPV){ 
         ingresosPorVenta = ingresosPV;

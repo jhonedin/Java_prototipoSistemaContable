@@ -86,6 +86,10 @@ public class registroGastoPanel extends javax.swing.JPanel {
     public void setCampoPucSelectGasto(String codigopuc,String nombre){
         txtCuentaPUC.setText(codigopuc+"-"+nombre);
     }
+    
+    public void setCampoTerceroSelectGasto(int id,String cconit,String nombre){
+        txtConsultarTercero.setText(id+"-"+nombre+"-"+cconit);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -160,6 +164,11 @@ public class registroGastoPanel extends javax.swing.JPanel {
         labelIDTercero.setText("ID Tercero:");
 
         btnConsultarTercero.setText("Consultar Tercero");
+        btnConsultarTercero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarTerceroActionPerformed(evt);
+            }
+        });
 
         labelObservaciones.setText("Observaciones:");
 
@@ -313,6 +322,11 @@ public class registroGastoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(14); // hace el llamado al panel de consultar y seleccionar una cuenta PUC para gasto
     }//GEN-LAST:event_btnConsultarPUCActionPerformed
+
+    private void btnConsultarTerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarTerceroActionPerformed
+        // TODO add your handling code here:
+        frame.swap(17); // hace el llamado al panel de consultar y seleccionar un tercero para gasto
+    }//GEN-LAST:event_btnConsultarTerceroActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
