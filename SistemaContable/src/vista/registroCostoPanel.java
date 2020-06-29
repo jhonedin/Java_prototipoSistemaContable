@@ -169,6 +169,11 @@ public class registroCostoPanel extends javax.swing.JPanel {
         labelCodigoKardex.setText("Codigo Kardex:");
 
         btnConsultarKardex.setText("Consultar Kardex");
+        btnConsultarKardex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarKardexActionPerformed(evt);
+            }
+        });
 
         labelObservaciones.setText("Observaciones:");
 
@@ -343,6 +348,11 @@ public class registroCostoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(16); // hace el llamado al panel de consultar y seleccionar un tercero para costo
     }//GEN-LAST:event_btnConsultarTerceroActionPerformed
+
+    private void btnConsultarKardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarKardexActionPerformed
+        // TODO add your handling code here:
+        frame.swap(19); // hace el llamado al panel de consultar y seleccionar un Kardex(Inventario) para costo
+    }//GEN-LAST:event_btnConsultarKardexActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -95,6 +95,10 @@ public class registroIngresoPanel extends javax.swing.JPanel {
     public void setCampoTerceroSelectIngreso(int id,String cconit,String nombre){
         txtNumIdenTercero.setText(id+"-"+nombre+"-"+cconit);
     }
+    
+    public void setCampoKardexMICSelectIngreso(String codigoMIC,String descripcion){
+        txtCodigoKardex.setText(codigoMIC+"-"+descripcion);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -165,6 +169,11 @@ public class registroIngresoPanel extends javax.swing.JPanel {
         labelCodigoKardex.setText("Codigo Kardex:");
 
         btnConsultarCodigoKardex.setText("Consultar Kardex");
+        btnConsultarCodigoKardex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarCodigoKardexActionPerformed(evt);
+            }
+        });
 
         labelObservacion.setText("Observaciones: ");
 
@@ -331,13 +340,18 @@ public class registroIngresoPanel extends javax.swing.JPanel {
 
     private void btnVerCodPucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCodPucActionPerformed
         // TODO add your handling code here:
-         frame.swap(12); // hace el llamado al panel de consultar y seleccionar una cuenta PUC      
+         frame.swap(12); // hace el llamado al panel de consultar y seleccionar una cuenta PUC para Ingreso    
     }//GEN-LAST:event_btnVerCodPucActionPerformed
 
     private void btnConsultarTerceroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarTerceroActionPerformed
         // TODO add your handling code here:
         frame.swap(15); // hace el llamado al panel de consultar y seleccionar un tercero para ingreso
     }//GEN-LAST:event_btnConsultarTerceroActionPerformed
+
+    private void btnConsultarCodigoKardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarCodigoKardexActionPerformed
+        // TODO add your handling code here:
+        frame.swap(18); // hace el llamado al panel de consultar y seleccionar un kardex(inventario) para ingreso
+    }//GEN-LAST:event_btnConsultarCodigoKardexActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

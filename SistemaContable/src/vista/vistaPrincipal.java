@@ -7,6 +7,7 @@ package vista;
 
 import javax.swing.JPanel;
 import modelo.Listadoterceros;
+import modelo.Maestroinventariocompleto;
 import modelo.Puc;
 
 /**
@@ -18,7 +19,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form vistaPrincipal
      */
-    JPanel panels[] = new JPanel[18]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
+    JPanel panels[] = new JPanel[22]; // ir incrementando el valor de este arreglo en la medida que se van creando los paneles
     private int ingresosPorVenta = 0;
     private int costoProduccion = 0;
     private int utilidadBruta = 0;
@@ -26,6 +27,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private String fechaFinal = "";
     private Puc puc;
     private Listadoterceros tercero;
+    private Maestroinventariocompleto maestroInventarioCompleto;
     private registroIngresoPanel panelRegistroIngresoAux;
     private registroCostoPanel panelRegistroCostoAux;
     private registroGastoPanel panelRegistroGastoAux;
@@ -132,6 +134,26 @@ public class vistaPrincipal extends javax.swing.JFrame {
         agregarPanel(17,panelSelectTerceroGasto); // Panel 17 - Panel de consulta  y seleccion de un tercero en Gasto
         panelSelectTerceroGasto.setVisible(false);  
         
+        selectInventariosIngresoPanel panelSelectInventariosIngreso = new selectInventariosIngresoPanel(this);
+        panelSelectInventariosIngreso.setBounds(0, 0, 900, 650);
+        agregarPanel(18,panelSelectInventariosIngreso); // Panel 18 - Panel de consulta  y seleccion de un kardex(inventatio) en Ingreso
+        panelSelectInventariosIngreso.setVisible(false);
+        
+        selectInventariosCostoPanel panelSelectInventariosCosto = new selectInventariosCostoPanel(this);
+        panelSelectInventariosCosto.setBounds(0, 0, 900, 650);
+        agregarPanel(19,panelSelectInventariosCosto); // Panel 19 - Panel de consulta  y seleccion de un kardex(inventatio) en Costo
+        panelSelectInventariosCosto.setVisible(false);
+        
+        selectInventariosGastoPanel panelSelectInventariosGasto = new selectInventariosGastoPanel(this);
+        panelSelectInventariosGasto.setBounds(0, 0, 900, 650);
+        agregarPanel(20,panelSelectInventariosCosto); // Panel 20 - Panel de consulta  y seleccion de un kardex(inventatio) en Costo
+        panelSelectInventariosGasto.setVisible(false);
+        
+        selectCentroCostoEnGastoPanel panelSelectCentroCostoEnGasto = new selectCentroCostoEnGastoPanel(this); 
+        panelSelectCentroCostoEnGasto.setBounds(0, 0, 900, 650);
+        agregarPanel(21,panelSelectCentroCostoEnGasto); // Panel 21 - Panel de consulta  y seleccion de un kardex(inventatio) en Costo
+        panelSelectCentroCostoEnGasto.setVisible(false);
+        
         this.add(panelOpciones);
         this.add(panelRegistroIngreso);
         this.add(panelRegistroCosto);
@@ -150,6 +172,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
         this.add(panelSelectTerceroIngreso);
         this.add(panelSelectTerceroCosto);
         this.add(panelSelectTerceroGasto);
+        this.add(panelSelectInventariosIngreso);
+        this.add(panelSelectInventariosCosto);
+        this.add(panelSelectInventariosGasto);
+        this.add(panelSelectCentroCostoEnGasto);
         initComponents();
         //hollaaaaaaaaa
     }
@@ -191,10 +217,17 @@ public class vistaPrincipal extends javax.swing.JFrame {
         panelRegistroGastoAux.setCampoTerceroSelectGasto(tercero.getId().intValue(),tercero.getCconit(), tercero.getNombre());
     }
     
+    public void setInventarioIngreso(Maestroinventariocompleto unMaestroInventarioCompleto){
+        maestroInventarioCompleto = unMaestroInventarioCompleto;
+        panelRegistroIngresoAux.setCampoKardexMICSelectIngreso(
+                maestroInventarioCompleto.getCodigo(),
+                maestroInventarioCompleto.getDescripcion());
+    }
     
     public void setIngresosPorVenta(int ingresosPV){ 
         ingresosPorVenta = ingresosPV;
     }
+    
     
     public int getIngresosPorVenta(){
         return ingresosPorVenta;

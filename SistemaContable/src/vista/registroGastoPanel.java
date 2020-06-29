@@ -151,6 +151,11 @@ public class registroGastoPanel extends javax.swing.JPanel {
         labelCentroCosto.setText("Centro de Costos:");
 
         btnConsultarCentroCosto.setText("Consultar Centro Costo");
+        btnConsultarCentroCosto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarCentroCostoActionPerformed(evt);
+            }
+        });
 
         labelCuentaPUC.setText("Cuenta PUC:");
 
@@ -327,6 +332,11 @@ public class registroGastoPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         frame.swap(17); // hace el llamado al panel de consultar y seleccionar un tercero para gasto
     }//GEN-LAST:event_btnConsultarTerceroActionPerformed
+
+    private void btnConsultarCentroCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarCentroCostoActionPerformed
+        // TODO add your handling code here:
+        frame.swap(21); // hace el llamado al panel de consultar y seleccionar un centro de costo en gasto
+    }//GEN-LAST:event_btnConsultarCentroCostoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

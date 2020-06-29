@@ -27,10 +27,12 @@ public class selectTerceroGastoPanel extends javax.swing.JPanel {
     private ListadoTercerosLogica listadoTercerosLogica;
     private List<Listadoterceros> listaTerceros;
     private List<Listadoterceros> listaTercerosAux;
+    private List<Listadoterceros> listaTercerosSeleccionable;
     public selectTerceroGastoPanel(vistaPrincipal frame) {
         this.frame = frame; // la instancia del frame principal la paso a una instancia en esta clase para poder usar los metodos del frame principal
         listaTerceros = new ArrayList<Listadoterceros>();
         listadoTercerosLogica = new ListadoTercerosLogica();
+        listaTercerosSeleccionable = new ArrayList<Listadoterceros>();
         initComponents();
         setBackground(Color.white);
         ComboBoxBuscarTipo.removeAllItems();
@@ -253,6 +255,25 @@ public class selectTerceroGastoPanel extends javax.swing.JPanel {
         listadoTercerosLogica = new ListadoTercerosLogica();
         listaTerceros = listadoTercerosLogica.listarTerceros();
         listadoTerceros = new Listadoterceros();
+        if(listaTercerosSeleccionable.isEmpty()){ // esta es para cuando no se hayan filtrado la lista
+            int filaSelect = 0; 
+            filaSelect =  tableTerceros.getSelectedRow();
+            int idSelect = 0;
+            idSelect = listaTerceros.get(filaSelect).getId().intValue();
+            listadoTerceros = listadoTercerosLogica.buscarTerceroID(idSelect);
+            frame.setTerceroGasto(listadoTerceros);
+            frame.swap(3); // hace el llamado al panel de registro de gasto
+        }
+        else{ // esta condicion es para cuando se haya filtrado la lista
+            int filaSelect = 0; 
+            filaSelect =  tableTerceros.getSelectedRow();
+            int idSelect = 0;
+            idSelect = listaTercerosSeleccionable.get(filaSelect).getId().intValue();
+            listadoTerceros = listadoTercerosLogica.buscarTerceroID(idSelect);
+            frame.setTerceroGasto(listadoTerceros);
+            frame.swap(3); // hace el llamado al panel de registro de gasto
+        }        
+        /*
         int filaSelect = 0; 
         filaSelect =  tableTerceros.getSelectedRow();
         int idSelect = 0;
@@ -260,6 +281,7 @@ public class selectTerceroGastoPanel extends javax.swing.JPanel {
         listadoTerceros = listadoTercerosLogica.buscarTerceroID(idSelect);
         frame.setTerceroGasto(listadoTerceros);
         frame.swap(3); // hace el llamado al panel de registro de gastos
+        */
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnBusquedaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaIDActionPerformed
@@ -278,6 +300,9 @@ public class selectTerceroGastoPanel extends javax.swing.JPanel {
                 }
             }
         }
+        // despues de filtrar la lista se guarda como la lista de elementos seleccionables
+        // en la tabla que se va a mostrar ya filtraba
+        listaTercerosSeleccionable = listaTercerosAux;
         llenarTablaTerceros(listaTercerosAux);
     }//GEN-LAST:event_btnBusquedaIDActionPerformed
 
@@ -305,6 +330,9 @@ public class selectTerceroGastoPanel extends javax.swing.JPanel {
                 }
             }
         }
+        // despues de filtrar la lista se guarda como la lista de elementos seleccionables
+        // en la tabla que se va a mostrar ya filtraba
+        listaTercerosSeleccionable = listaTercerosAux;
         llenarTablaTerceros(listaTercerosAux);
     }//GEN-LAST:event_btnBusquedaIdentificacionActionPerformed
 
@@ -334,6 +362,9 @@ public class selectTerceroGastoPanel extends javax.swing.JPanel {
                 }
             }
         }
+        // despues de filtrar la lista se guarda como la lista de elementos seleccionables
+        // en la tabla que se va a mostrar ya filtraba
+        listaTercerosSeleccionable = listaTercerosAux;
         llenarTablaTerceros(listaTercerosAux);
     }//GEN-LAST:event_btnBusquedaNombreActionPerformed
 
@@ -363,6 +394,9 @@ public class selectTerceroGastoPanel extends javax.swing.JPanel {
             listaTercerosAux = listaTerceros;
         }
         Nocumplio = 0;
+        // despues de filtrar la lista se guarda como la lista de elementos seleccionables
+        // en la tabla que se va a mostrar ya filtraba
+        listaTercerosSeleccionable = listaTercerosAux;
         llenarTablaTerceros(listaTercerosAux);
         
     }//GEN-LAST:event_btnBuscarTipoActionPerformed

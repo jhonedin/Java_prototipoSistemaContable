@@ -24,7 +24,7 @@ public class MaestroinventariocompletoLogica {
         return maestroInventarioCompletoDAO.findMaestroinventariocompletoEntities(); // retorna todo el listado del maestro de inventario 
     }
     
-    public Maestroinventariocompleto buscarPucxcodigo(String codigo){
+    public Maestroinventariocompleto buscarInventarioxcodigo(String codigo){
         return maestroInventarioCompletoDAO.findMaestroinventariocompleto(codigo);
     }
 }

@@ -39,7 +39,7 @@ public class selectPUCGasto extends javax.swing.JPanel {
         listaPuc = pucLogica.listarPuc();
      
         for(int i=0;i<= listaPuc.size()-1;i++){
-            if(listaPuc.get(i).getCodigo().startsWith("4")){              
+            if(listaPuc.get(i).getCodigo().startsWith("5")){              
                 if(listaPuc.get(i).getCodigo().toCharArray().length>=6){
                     listaPucAux.add(listaPuc.get(i));
                 }
@@ -157,7 +157,7 @@ public class selectPUCGasto extends javax.swing.JPanel {
         PucLogica pucLogica = new PucLogica();
         listaPuc = pucLogica.listarPuc();
         for(int i=0;i<= listaPuc.size()-1;i++){
-            if(listaPuc.get(i).getCodigo().startsWith("4")){              
+            if(listaPuc.get(i).getCodigo().startsWith("5")){              
                 if(listaPuc.get(i).getCodigo().toCharArray().length>=6){
                     listaPucAux.add(listaPuc.get(i));
                 }
